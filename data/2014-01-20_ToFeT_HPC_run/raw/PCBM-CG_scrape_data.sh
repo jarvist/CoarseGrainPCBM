@@ -22,7 +22,8 @@ do
 
         for file in ${mole}_?????_TOF_${sigma}.tofet
         do
-            mu=` grep MOBILITY ${file} | grep COLLECTION | awk '{print  $7}' `
+            mu=` grep MOBILITY ${file} | grep DISPLACEMENT | awk '{print  $10}' ` #$7 for COLLETION; $10 for DISPLACEMENT
+            # Joe, why didn't you make this just a little more sane? :^)
             echo $mole $sigma $mu
         done
     done

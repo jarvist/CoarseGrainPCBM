@@ -1,0 +1,16 @@
+#JMF Additions 2014-01-13
+# This is the ToF version
+
+reorg 0.132			
+temp 300.0 250.0	
+fieldZ -5e-3 -1e-2
+hoppers 1		
+maxTime 1e-4
+deltaTime 1e-15	
+alpha 1.5		
+tol 2e-6		
+maxRuns 10000
+#verbosity high
+
+#Read site energies from .xyz file please
+siteEnergies 1

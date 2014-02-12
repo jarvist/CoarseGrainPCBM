@@ -1,0 +1,126 @@
+Copied + pasted from the HPC so I can work offline on it.
+
+Note some of these geometries are dodge (not fully relaxed - but I checked the .log files and it seemed to be the sidechains flapping around, thus not much effect on hte electronic structure). Note high asymmetry in some Ion vs. Neutral lambdas for some isomers - Science or Numeric Noise? Forver a question.
+
+#####
+[21:25:56]jmf02@login-3:/work/jmf02/LAMBDA_REORG/2014-02_PCBMs/complete_geoms/
+> . lambdas.sh
+pbm_c60_mono
+N_ion:  -2902.40436047 N_neu:  -2902.33430428 I_ion:  -2902.40720816 I_neu:  -2902.33144099
+Neutral transition (I_new-N_neu) in eV: .07791298419
+Ion transition (N_ion - I_ion) in eV: .07748849259
+.15540147678
+
+pbm_c60_bis_c1
+N_ion:  -3518.51720446 N_neu:  -3518.45205318 I_ion:  -3518.52391659 I_neu:  -3518.44795480
+Neutral transition (I_new-N_neu) in eV: .11152101818
+Ion transition (N_ion - I_ion) in eV: .18264376943
+.29416478761
+
+pbm_c60_bis_c2
+N_ion:  -3518.55150771 N_neu:  -3518.48766821 I_ion:  -3518.55734688 I_neu:  -3518.48367930
+Neutral transition (I_new-N_neu) in eV: .10854223001
+Ion transition (N_ion - I_ion) in eV: .15888965487
+.26743188488
+
+pbm_c60_bis_e1
+N_ion:  -3518.56004805 N_neu:  -3518.49452220 I_ion:  -3518.56333693 I_neu:  -3518.49125818
+Neutral transition (I_new-N_neu) in eV: .08881724822
+Ion transition (N_ion - I_ion) in eV: .08949371368
+.17831096190
+
+pbm_c60_bis_t1
+N_ion:  -3518.54801655 N_neu:  -3518.47853604 I_ion:  -3518.55357757 I_neu:  -3518.47345372
+Neutral transition (I_new-N_neu) in eV: .13829500952
+Ion transition (N_ion - I_ion) in eV: .15132091522
+.28961592474
+
+pbm_c60_bis_t2
+N_ion:  -3518.55970928 N_neu:  -3518.48995954 I_ion:  -3518.56268338 I_neu:  -3518.48700864
+Neutral transition (I_new-N_neu) in eV: .08029693990
+Ion transition (N_ion - I_ion) in eV: .08092823510
+.16122517500
+
+pbm_c60_bis_t3
+N_ion:  -3518.55310145 N_neu:  -3518.49016553 I_ion:  -3518.55920932 I_neu:  -3518.48554358
+Neutral transition (I_new-N_neu) in eV: .12576788145
+Ion transition (N_ion - I_ion) in eV: .16620125057
+.29196913202
+
+pbm_c60_bis_t4
+N_ion:  -3518.55480233 N_neu:  -3518.48856848 I_ion:  -3518.55831405 I_neu:  -3518.48534700
+Neutral transition (I_new-N_neu) in eV: .08765969228
+Ion transition (N_ion - I_ion) in eV: .09555741292
+.18321710520
+
+pbm_c60_tris_EEE
+N_ion:  -4134.69716627 N_neu:  -4134.64326855 I_ion:  -4134.70104024 I_neu:  -4134.63928397
+Neutral transition (I_new-N_neu) in eV: .10842440638
+Ion transition (N_ion - I_ion) in eV: .10541459767
+.21383900405
+
+pbm_c60_tris_EET1_1
+N_ion:  -4134.70717159 N_neu:  -4134.64442101 I_ion:  -4134.71087667 I_neu:  -4134.64076407
+Neutral transition (I_new-N_neu) in eV: .09950899434
+Ion transition (N_ion - I_ion) in eV: .10081893188
+.20032792622
+
+pbm_c60_tris_EET1_2
+N_ion:  -4134.70147563 N_neu:  -4134.63506274 I_ion:  -4134.70510881 I_neu:  -4134.63158531
+Neutral transition (I_new-N_neu) in eV: .09462434773
+Ion transition (N_ion - I_ion) in eV: .09886246098
+.19348680871
+
+pbm_c60_tris_ET3T2
+N_ion:  -4134.70631752 N_neu:  -4134.64624859 I_ion:  -4134.70973265 I_neu:  -4134.64279504
+Neutral transition (I_new-N_neu) in eV: .09397454905
+Ion transition (N_ion - I_ion) in eV: .09292910243
+.18690365148
+
+pbm_c60_tris_ET4T3
+N_ion:  -4134.70296722 N_neu:  -4134.64088642 I_ion:  -4134.70664423 I_neu:  -4134.63719274
+Neutral transition (I_new-N_neu) in eV: .10050872648
+Ion transition (N_ion - I_ion) in eV: .10005511911
+.20056384559
+
+pbm_c60_tris_T4T4T2
+N_ion:  -4134.69716221 N_neu:  -4134.63263447 I_ion:  -4134.70261062 I_neu:  -4134.62715064
+Neutral transition (I_new-N_neu) in eV: .14922049813
+Ion transition (N_ion - I_ion) in eV: .14825668451
+.29747718264
+
+[21:26:01]jmf02@login-3:/work/jmf02/LAMBDA_REORG/2014-02_PCBMs/complete_geoms/
+> cd ../flappy-non-opt-geoms/
+[21:26:05]jmf02@login-3:/work/jmf02/LAMBDA_REORG/2014-02_PCBMs/flappy-non-opt-geoms/
+> cd ../. lambdas.sh
+pbm_c60_bis_c3
+N_ion:  -3518.55104246 N_neu:  -3518.48223370 I_ion:  -3518.55105164 I_neu:  -3518.48223370
+Neutral transition (I_new-N_neu) in eV: 0
+Ion transition (N_ion - I_ion) in eV: .00024979698
+.00024979698
+
+pbm_c60_tris_ET4T2
+N_ion:  -4134.71405964 N_neu:  -4134.64792051 I_ion:  -4134.71797221 I_neu:  -4134.64429692
+Neutral transition (I_new-N_neu) in eV: .09860150749
+Ion transition (N_ion - I_ion) in eV: .10646494227
+.20506644976
+
+pbm_c60_tris_T3T3T3
+N_ion:  -4134.70504400 N_neu:  -4134.64908548 I_ion:  -4134.71137645 I_neu:  -4134.64398528
+Neutral transition (I_new-N_neu) in eV: .13878154220
+Ion transition (N_ion - I_ion) in eV: .17231229695
+.31109383915
+
+pbm_c60_tris_T4T3T3
+N_ion:  -4134.70892167 N_neu:  -4134.65139611 I_ion:  -4134.70125011 I_neu:  -4134.63579957
+Neutral transition (I_new-N_neu) in eV: .42439744994
+Ion transition (N_ion - I_ion) in eV: -.20875081916
+.21564663078
+
+pbm_c60_tris_T4T4T4
+N_ion:  -4134.70833536 N_neu:  -4134.64931637 I_ion:  I_neu:
+Neutral transition (I_new-N_neu) in eV: 112507.94254774407
+Ion transition (N_ion - I_ion) in eV: (standard_in) 1: syntax error
+(standard_in) 1: syntax error
+
+####

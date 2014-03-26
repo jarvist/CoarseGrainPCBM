@@ -16,6 +16,7 @@
 \usepackage{bm}% bold math
 
 \usepackage{siunitx}% JMF addition - once a physicist, always a physicist
+\usepackage{booktabs}% JMF addition - professional tables; no vertical lines
 
 %\bibliographystyle{aipnum4-1}
 %\draft % marks overfull lines with a black rule on the right
@@ -49,8 +50,40 @@ Abstract. EPSRC gave us some money so we did our best to do great science, and t
 
 %\maketitle 
 
-\textbf{Introduction}
+\textbf{Lambdas}
 
+\begin{table}
+\centering
+\begin{tabular}{lccc}
+\toprule
+Isomer & $\lambda_{neut}$ & $\lambda_{ion}$ & $\lambda_{tot}$ \\
+\midrule
+mono & 77.91 & 77.49 & 155.40 \\
+\midrule
+bis-C1 & 111.52 & 182.64 & 294.16 \\
+bis-C2 & 108.54 & 158.89 & 267.43 \\
+bis-C3 & 81.38 & 83.31 & 164.69 \\
+bis-E1 & 88.82 & 89.49 & 178.31 \\
+bis-T1 & 138.30 & 151.32 & 289.62 \\
+bis-T2 & 80.30 & 80.93 & 161.23 \\
+bis-T3 & 125.77 & 166.20 & 291.97 \\
+bis-T4 & 87.66 & 95.56 & 183.22 \\
+\midrule
+tris-E,E,E & 108.42 & 105.41 & 213.84 \\
+tris-E,E,T1(1) & 99.51 & 100.82 & 200.33 \\
+tris-E,E,T1(2) & 94.62 & 98.86 & 193.49 \\
+tris-E,T3,T2 & 93.97 & 92.93 & 186.90 \\
+tris-E,T4,T2 & 98.54 & 106.46 & 205.00 \\
+tris-E,T4,T3 & 100.51 & 100.06 & 200.56 \\
+tris-T3,T3,T3 & 137.97 & 173.63 & 311.60 \\
+tris-T4,T3,T3 & 200.30 & 226.34 & 426.64 \\
+tris-T4,T4,T2 & 149.22 & 148.26 & 297.48 \\
+tris- & DATA & HERE & PLEASE \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:Lambda}
+Inner sphere reorganisation energies of Mono, Bis and Tris PC$-{60}$BM fullerenes. All units meV.}
+\end{table}
 
 \begin{acknowledgement}
 We acknowledge membership of the UK's HPC Materials Chemistry Consortium, which is funded by EPSRC grant EP/F067496. 

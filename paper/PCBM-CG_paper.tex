@@ -21,7 +21,7 @@
 %\bibliographystyle{aipnum4-1}
 %\draft % marks overfull lines with a black rule on the right
 
-\title{PCBM-CG: A place for tired Latex to rest}
+\title{PCBM-CG: A place for tired \LaTeX to rest}
 
 \author{Jarvist M. Frost}
 %\author{Federico Brivio}
@@ -54,7 +54,7 @@ Abstract. EPSRC gave us some money so we did our best to do great science, and t
 
 \begin{table}
 \centering
-\begin{tabular}{lccc}
+\begin{tabular}{lSSS}
 \toprule
 Isomer & $\lambda_{neut}$ & $\lambda_{ion}$ & $\lambda_{tot}$ \\
 \midrule
@@ -78,11 +78,33 @@ tris-E,T4,T3 & 100.51 & 100.06 & 200.56 \\
 tris-T3,T3,T3 & 137.97 & 173.63 & 311.60 \\
 tris-T4,T3,T3 & 200.30 & 226.34 & 426.64 \\
 tris-T4,T4,T2 & 149.22 & 148.26 & 297.48 \\
-tris- & DATA & HERE & PLEASE \\
+tris- & {DATA} & {HERE} & {PLEASE} \\
 \bottomrule
 \end{tabular}
 \caption{\label{tab:Lambda}
 Inner sphere reorganisation energies of Mono, Bis and Tris PC$-{60}$BM fullerenes. All units meV.}
+\end{table}
+
+\textbf{Some mobs}
+
+
+\begin{table}
+\centering
+\sisetup{scientific-notation=fixed,fixed-exponent=-3,round-mode=figures,round-precision=3}
+\newcolumntype{H}{>{\lrbox0}c<{\endlrbox}@{}} % Hide some data :^)
+\begin{tabular}{lSHSHSH}
+\toprule
+$\sigma$ & 0.0 & 0.021 & 0.056 & 0.072 & 0.121 & 0.250 \\
+\midrule
+ M  & 0.004402762    &  0.004071634      &  0.002722337      &  0.002132572      &  0.0008374095     &  4.014195e-05     \\
+ B  & 0.002272817    &  0.002067089      &  0.001300517      &  0.0009679719     &  0.0003292884     &  1.183156e-05     \\
+ B-E1  & 0.00188074      &  0.00172335   &  0.001089123      &  0.0008162235     &  0.0002771943     &  1.031878e-05     \\
+ T  & 0.001201081    &  0.001014771      &  0.0005888677     &  0.000400768      &  0.0001261058     &  3.709921e-06     \\
+ T-EEE  & 0.0006229742   &  0.0006152113     &  0.0004291373     &  0.0003060389     &  8.536267e-05     &  2.495028e-06 \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:mobs}
+Mobility by Time of Flight, with varying energetic disorder. Units are \si{cm^2/Vs}}
 \end{table}
 
 \begin{acknowledgement}

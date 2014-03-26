@@ -1,0 +1,18 @@
+jmf02@login-2:/work/jmf02/PCBM-CG/production_runs/2013-06_PACKMOL/100kDa/M/md-Production1/
+
+
+make_ndx -f confout.gro -o index.ndx
+a C
+a P
+q
+
+g_rdf -f traj.xtc -n index.ndx -s md-Production1.tpr
+
+For C-C, C-P, P-P;
+
+3 3
+3 4
+4 4
+
+Nb: seems very slow to run on login node; should really write a job script for this. 
+How to in-line the STDIN commands? With some crazy echoes? (>_<)

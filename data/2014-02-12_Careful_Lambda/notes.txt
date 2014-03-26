@@ -1,0 +1,6 @@
+A real pain to get T4T4T4 to converge!
+Now I have the geometry (SCF=QC), but the neutral energy on ion geometry doesn't want to converge. Perhaps the saved structure is a long way away from the target? I've tried with different options, using a guess or the check, and different methods of converge (SCF=).
+
+Latest work here: [21:37:25]jmf02@login-2:/work/jmf02/LAMBDA_REORG/2014-02_PCBMs/T4T4T4/Es/desperation_made_a_fool_of_me2/
+
+Off for the night...

@@ -1,0 +1,30 @@
+methano_c60_mono & 68.80 & 68.83 & 137.63 \\
+methano_c60_bis_c1 & 70.42 & 70.57 & 140.99 \\
+methano_c60_bis_c2 & 70.45 & 73.48 & 143.93 \\
+methano_c60_bis_c3 & 78.69 & 72.39 & 151.08 \\
+methano_c60_bis_e1 & 69.79 & 74.79 & 144.58 \\
+methano_c60_bis_t1 & 69.37 & 69.01 & 138.38 \\
+methano_c60_bis_t2 & 78.85 & 79.53 & 158.38 \\
+methano_c60_bis_t3 & 75.42 & 72.98 & 148.40 \\
+methano_c60_bis_t4 & 70.03 & 68.63 & 138.66 \\
+methano_c60_tris_EEE & 105.49 & 78.63 & 184.12 \\
+methano_c60_tris_EET1_1 & 76.11 & 76.12 & 152.22 \\
+methano_c60_tris_EET1_2 & 72.66 & 72.96 & 145.62 \\
+methano_c60_tris_ET3T2 & 73.33 & 75.39 & 148.72 \\
+methano_c60_tris_ET4T2 & 75.29 & 72.51 & 147.80 \\
+methano_c60_tris_ET4T3 & 76.80 & 73.70 & 150.50 \\
+methano_c60_tris_T3T3T3 & 82.08 & 75.01 & 157.09 \\
+methano_c60_tris_T4T3T3 & 77.78 & 78.22 & 155.99 \\
+methano_c60_tris_T4T4T2 & 74.82 & 74.58 & 149.40 \\
+grep: methano_c60_tris_T4T4T4*neutral_opt_ion_E.log: No such file or directory
+grep: methano_c60_tris_T4T4T4*neutral_opt_neutral_E.log: No such file or directory
+grep: methano_c60_tris_T4T4T4*ion_opt_ion_E.log: No such file or directory
+grep: methano_c60_tris_T4T4T4*ion_opt_neutral_E.log: No such file or directory
+(standard_in) 1: syntax error
+(standard_in) 1: syntax error
+(standard_in) 1: syntax error
+methano_c60_tris_T4T4T4 & 0.00 & 0.00 & 0.00 \\
+methano_c70_mono & 92.31 & 87.75 & 180.07 \\
+methano_c70_bis_4158 & 98.25 & 96.06 & 194.31 \\
+methano_c70_bis_5657 & 87.27 & 89.48 & 176.75 \\
+methano_c70_bis_6768 & 96.07 & 96.10 & 192.17 \\

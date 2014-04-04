@@ -1,0 +1,12 @@
+# This file was created Thu Jan 10 15:44:19 2013
+# by the following command:
+# g_bond 
+#
+# g_bond is part of G R O M A C S:
+#
+# Green Red Orange Magenta Azure Cyan Skyblue
+#
+@    title "Bond Stretching Distribution"
+@    xaxis  label "Bond Length (nm)"
+@    yaxis  label ""
+@TYPE xy

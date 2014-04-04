@@ -1,0 +1,8 @@
+alter elem C, vdw=5.0
+alter elem P, vdw=3.5
+
+color iodine, elem C
+show spheres
+
+viewport 809, 500
+

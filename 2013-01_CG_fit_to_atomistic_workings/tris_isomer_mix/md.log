@@ -1,0 +1,989 @@
+Log file opened on Tue Jan 22 18:14:13 2013
+Host: james10uc  pid: 15075  nodeid: 0  nnodes:  1
+Gromacs version:    VERSION 4.6-beta3
+Precision:          single
+MPI library:        thread_mpi
+OpenMP support:     enabled
+GPU support:        enabled
+invsqrt routine:    gmx_software_invsqrt(x)
+CPU acceleration:   SSE2
+FFT library:        fftw-3.2.2
+Large file support: enabled
+RDTSCP usage:       disabled
+Built on:           Fri Jan 11 15:34:52 GMT 2013
+Built by:           jarvist@james10uc [CMAKE]
+Build OS/arch:      Linux 2.6.32-33-generic x86_64
+Build CPU vendor:   GenuineIntel
+Build CPU brand:    Intel(R) Core(TM)2 CPU          6600  @ 2.40GHz
+Build CPU family:   6   Model: 15   Stepping: 6
+Build CPU features: apic clfsh cmov cx8 cx16 lahf_lm mmx msr pdcm pse sse2 sse3 ssse3
+C compiler:         /usr/bin/gcc GNU gcc (Ubuntu 4.4.3-4ubuntu5.1) 4.4.3
+C compiler flags:   -msse2  -Wextra -Wno-missing-field-initializers -Wno-sign-compare -Wall -Wno-unused -Wunused-value   -fomit-frame-pointer -funroll-all-loops  -O3 -DNDEBUG
+C++ compiler:       /usr/bin/c++ GNU c++ (Ubuntu 4.4.3-4ubuntu5.1) 4.4.3
+C++ compiler flags: -msse2  -Wextra -Wno-missing-field-initializers -Wno-sign-compare -Wall -Wno-unused -Wunused-value   -fomit-frame-pointer -funroll-all-loops  -O3 -DNDEBUG
+CUDA compiler:      nvcc: NVIDIA (R) Cuda compiler driver;Copyright (c) 2005-2010 NVIDIA Corporation;Built on Wed_Nov__3_16:16:57_PDT_2010;Cuda compilation tools, release 3.2, V0.2.1221
+CUDA driver:        0.0
+CUDA runtime:       0.0
+
+
+                         :-)  G  R  O  M  A  C  S  (-:
+
+                 Good ROcking Metal Altar for Chronical Sinners
+
+                          :-)  VERSION 4.6-beta3  (-:
+
+        Written by Emile Apol, Rossen Apostolov, Herman J.C. Berendsen,
+      Aldert van Buuren, Pär Bjelkmar, Rudi van Drunen, Anton Feenstra, 
+        Gerrit Groenhof, Peter Kasson, Per Larsson, Pieter Meulenhoff, 
+           Teemu Murtola, Szilard Pall, Sander Pronk, Roland Schulz, 
+                Michael Shirts, Alfons Sijbers, Peter Tieleman,
+
+               Berk Hess, David van der Spoel, and Erik Lindahl.
+
+       Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+            Copyright (c) 2001-2010, The GROMACS development team at
+        Uppsala University & The Royal Institute of Technology, Sweden.
+            check out http://www.gromacs.org for more information.
+
+         This program is free software; you can redistribute it and/or
+       modify it under the terms of the GNU Lesser General Public License
+        as published by the Free Software Foundation; either version 2.1
+             of the License, or (at your option) any later version.
+
+                                :-)  mdrun  (-:
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess and C. Kutzner and D. van der Spoel and E. Lindahl
+GROMACS 4: Algorithms for highly efficient, load-balanced, and scalable
+molecular simulation
+J. Chem. Theory Comput. 4 (2008) pp. 435-447
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+D. van der Spoel, E. Lindahl, B. Hess, G. Groenhof, A. E. Mark and H. J. C.
+Berendsen
+GROMACS: Fast, Flexible and Free
+J. Comp. Chem. 26 (2005) pp. 1701-1719
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+E. Lindahl and B. Hess and D. van der Spoel
+GROMACS 3.0: A package for molecular simulation and trajectory analysis
+J. Mol. Mod. 7 (2001) pp. 306-317
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+H. J. C. Berendsen, D. van der Spoel and R. van Drunen
+GROMACS: A message-passing parallel molecular dynamics implementation
+Comp. Phys. Comm. 91 (1995) pp. 43-56
+-------- -------- --- Thank You --- -------- --------
+
+
+NOTE: Error occurred during GPU detection:
+      CUDA driver version is insufficient for CUDA runtime version
+      Can not use GPU acceleration, will fall back to CPU kernels.
+
+Input Parameters:
+   integrator           = md
+   nsteps               = 250000
+   init-step            = 0
+   cutoff-scheme        = Group
+   ns_type              = Grid
+   nstlist              = 5
+   ndelta               = 2
+   nstcomm              = 100
+   comm-mode            = Linear
+   nstlog               = 5000
+   nstxout              = 500
+   nstvout              = 5000
+   nstfout              = 0
+   nstcalcenergy        = 100
+   nstenergy            = 5000
+   nstxtcout            = 5000
+   init-t               = 0
+   delta-t              = 0.01
+   xtcprec              = 1000
+   fourierspacing       = 0.12
+   nkx                  = 0
+   nky                  = 0
+   nkz                  = 0
+   pme-order            = 4
+   ewald-rtol           = 1e-05
+   ewald-geometry       = 0
+   epsilon-surface      = 0
+   optimize-fft         = FALSE
+   ePBC                 = xyz
+   bPeriodicMols        = FALSE
+   bContinuation        = FALSE
+   bShakeSOR            = FALSE
+   etc                  = V-rescale
+   bPrintNHChains       = FALSE
+   nsttcouple           = 5
+   epc                  = Berendsen
+   epctype              = Isotropic
+   nstpcouple           = 5
+   tau-p                = 5
+   ref-p (3x3):
+      ref-p[    0]={ 1.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref-p[    1]={ 0.00000e+00,  1.00000e+00,  0.00000e+00}
+      ref-p[    2]={ 0.00000e+00,  0.00000e+00,  1.00000e+00}
+   compress (3x3):
+      compress[    0]={ 4.50000e-05,  0.00000e+00,  0.00000e+00}
+      compress[    1]={ 0.00000e+00,  4.50000e-05,  0.00000e+00}
+      compress[    2]={ 0.00000e+00,  0.00000e+00,  4.50000e-05}
+   refcoord-scaling     = No
+   posres-com (3):
+      posres-com[0]= 0.00000e+00
+      posres-com[1]= 0.00000e+00
+      posres-com[2]= 0.00000e+00
+   posres-comB (3):
+      posres-comB[0]= 0.00000e+00
+      posres-comB[1]= 0.00000e+00
+      posres-comB[2]= 0.00000e+00
+   verlet-buffer-drift  = 0.005
+   rlist                = 3.85
+   rlistlong            = 3.85
+   nstcalclr            = 0
+   rtpi                 = 0.05
+   coulombtype          = Cut-off
+   coulomb-modifier     = None
+   rcoulomb-switch      = 0
+   rcoulomb             = 3.85
+   vdwtype              = Cut-off
+   vdw-modifier         = None
+   rvdw-switch          = 0
+   rvdw                 = 3.85
+   epsilon-r            = 1
+   epsilon-rf           = inf
+   tabext               = 1
+   implicit-solvent     = No
+   gb-algorithm         = Still
+   gb-epsilon-solvent   = 80
+   nstgbradii           = 1
+   rgbradii             = 2
+   gb-saltconc          = 0
+   gb-obc-alpha         = 1
+   gb-obc-beta          = 0.8
+   gb-obc-gamma         = 4.85
+   gb-dielectric-offset = 0.009
+   sa-algorithm         = Ace-approximation
+   sa-surface-tension   = 2.05016
+   DispCorr             = No
+   bSimTemp             = FALSE
+   free-energy          = no
+   nwall                = 0
+   wall-type            = 9-3
+   wall-atomtype[0]     = -1
+   wall-atomtype[1]     = -1
+   wall-density[0]      = 0
+   wall-density[1]      = 0
+   wall-ewald-zfac      = 3
+   pull                 = no
+   rotation             = FALSE
+   disre                = No
+   disre-weighting      = Conservative
+   disre-mixed          = FALSE
+   dr-fc                = 1000
+   dr-tau               = 0
+   nstdisreout          = 100
+   orires-fc            = 0
+   orires-tau           = 0
+   nstorireout          = 100
+   dihre-fc             = 0
+   em-stepsize          = 0.1
+   em-tol               = 100
+   niter                = 20
+   fc-stepsize          = 0
+   nstcgsteep           = 1000
+   nbfgscorr            = 10
+   ConstAlg             = Lincs
+   shake-tol            = 0.0001
+   lincs-order          = 4
+   lincs-warnangle      = 30
+   lincs-iter           = 1
+   bd-fric              = 0.1
+   ld-seed              = 1993
+   cos-accel            = 0
+   deform (3x3):
+      deform[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   adress               = FALSE
+   userint1             = 0
+   userint2             = 0
+   userint3             = 0
+   userint4             = 0
+   userreal1            = 0
+   userreal2            = 0
+   userreal3            = 0
+   userreal4            = 0
+grpopts:
+   nrdf:        8907
+   ref-t:         300
+   tau-t:         0.2
+anneal:          No
+ann-npoints:           0
+   acc:	           0           0           0
+   nfreeze:           N           N           N
+   energygrp-flags[  0]: 0
+   efield-x:
+      n = 0
+   efield-xt:
+      n = 0
+   efield-y:
+      n = 0
+   efield-yt:
+      n = 0
+   efield-z:
+      n = 0
+   efield-zt:
+      n = 0
+   bQMMM                = FALSE
+   QMconstraints        = 0
+   QMMMscheme           = 0
+   scalefactor          = 1
+qm-opts:
+   ngQM                 = 0
+
+Initializing Domain Decomposition on 2 nodes
+Dynamic load balancing: auto
+Will sort the charge groups at every domain (re)decomposition
+Scaling the initial minimum size with 1/0.8 (option -dds) = 1.25
+Optimizing the DD grid for 2 cells with a minimum initial size of 0.000 nm
+Domain decomposition grid 2 x 1 x 1, separate PME nodes 0
+Domain decomposition nodeid 0, coordinates 0 0 0
+
+Using 2 MPI threads
+
+Detecting CPU-specific acceleration.
+Present hardware specification:
+Vendor: GenuineIntel
+Brand:  Intel(R) Core(TM)2 CPU          6600  @ 2.40GHz
+Family:  6  Model: 15  Stepping:  6
+Features: apic clfsh cmov cx8 cx16 lahf_lm mmx msr pdcm pse sse2 sse3 ssse3
+Acceleration most likely to fit this hardware: SSE2
+Acceleration selected at GROMACS compile time: SSE2
+
+
+No GPUs detected
+
+Table routines are used for coulomb: FALSE
+Table routines are used for vdw:     FALSE
+Cut-off's:   NS: 3.85   Coulomb: 3.85   LJ: 3.85
+System total charge: 0.000
+Potential shift: LJ r^-12: 0.000 r^-6 0.000, Coulomb 0.000
+Removing pbc first time
+
+Initializing LINear Constraint Solver
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess and H. Bekker and H. J. C. Berendsen and J. G. E. M. Fraaije
+LINCS: A Linear Constraint Solver for molecular simulations
+J. Comp. Chem. 18 (1997) pp. 1463-1472
+-------- -------- --- Thank You --- -------- --------
+
+The number of constraints is 2970
+
+Linking all bonded interactions to atoms
+
+The initial number of communication pulses is: X 1
+The initial domain decomposition cell size is: X 5.52 nm
+
+When dynamic load balancing gets turned on, these settings will change to:
+The maximum number of communication pulses is: X 1
+The minimum size for domain decomposition cells is 3.850 nm
+The requested allowed shrink of DD cells (option -dds) is: 0.80
+The allowed shrink of domain decomposition cells is: X 0.70
+
+Making 1D domain decomposition grid 2 x 1 x 1, home cell index 0 0 0
+
+Center of mass motion removal mode is Linear
+We have the following groups for center of mass motion removal:
+  0:  rest
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+G. Bussi, D. Donadio and M. Parrinello
+Canonical sampling through velocity rescaling
+J. Chem. Phys. 126 (2007) pp. 014101
+-------- -------- --- Thank You --- -------- --------
+
+There are: 3960 Atoms
+Charge group distribution at step 0: 495 495
+Grid: 4 x 5 x 5 cells
+
+Constraining the starting coordinates (step 0)
+
+Constraining the coordinates at t0-dt (step 0)
+RMS relative constraint deviation after constraining: 4.23e-07
+Initial temperature: 296.143 K
+
+Started mdrun on node 0 Tue Jan 22 18:14:13 2013
+
+           Step           Time         Lambda
+              0        0.00000        0.00000
+
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -3.69455e+05    0.00000e+00    1.39826e+08    1.16118e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39837e+08    3.13590e+02    9.18880e+03    4.76488e-07
+
+DD  step 4 load imb.: force  1.1%
+
+DD  step 4999 load imb.: force  1.8%
+
+           Step           Time         Lambda
+           5000       50.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -4.74747e+05    0.00000e+00    1.39720e+08    1.11232e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39731e+08    3.00394e+02   -2.33739e-01    4.66553e-07
+
+DD  step 9999 load imb.: force 25.8%
+
+           Step           Time         Lambda
+          10000      100.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -4.76919e+05    0.00000e+00    1.39718e+08    1.13329e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39729e+08    3.06058e+02    6.50101e+01    4.98112e-07
+
+DD  step 14999 load imb.: force  0.3%
+
+           Step           Time         Lambda
+          15000      150.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -4.77806e+05    0.00000e+00    1.39717e+08    1.09195e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39728e+08    2.94894e+02    9.45636e+01    4.83152e-07
+
+DD  step 19999 load imb.: force  1.0%
+
+           Step           Time         Lambda
+          20000      200.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -4.78977e+05    0.00000e+00    1.39716e+08    1.10076e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39727e+08    2.97272e+02   -5.04877e+01    4.84363e-07
+
+DD  step 24999 load imb.: force  0.3%
+
+           Step           Time         Lambda
+          25000      250.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -4.79653e+05    0.00000e+00    1.39715e+08    1.12187e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39727e+08    3.02973e+02   -7.10533e+01    4.72986e-07
+
+DD  step 29999 load imb.: force  7.8%
+
+           Step           Time         Lambda
+          30000      300.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -4.80129e+05    0.00000e+00    1.39715e+08    1.09929e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39726e+08    2.96876e+02    6.79587e+01    4.74309e-07
+
+DD  step 34999 load imb.: force  0.1%
+
+           Step           Time         Lambda
+          35000      350.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -4.80669e+05    0.00000e+00    1.39714e+08    1.11285e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39726e+08    3.00539e+02   -8.15107e+01    4.69843e-07
+
+DD  step 39999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+          40000      400.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -4.80698e+05    0.00000e+00    1.39714e+08    1.08694e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39725e+08    2.93539e+02   -9.08103e+01    4.66954e-07
+
+DD  step 44999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+          45000      450.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -4.80821e+05    0.00000e+00    1.39714e+08    1.10178e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39725e+08    2.97547e+02   -1.72457e+02    4.63622e-07
+
+DD  step 49999 load imb.: force  0.4%
+
+           Step           Time         Lambda
+          50000      500.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40195e+08   -4.81064e+05    0.00000e+00    1.39714e+08    1.11295e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39725e+08    3.00564e+02   -3.58279e+01    4.61417e-07
+
+Writing checkpoint, step 54095 at Tue Jan 22 18:29:13 2013
+
+
+DD  step 54999 load imb.: force 15.4%
+
+           Step           Time         Lambda
+          55000      550.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40196e+08   -4.81177e+05    0.00000e+00    1.39715e+08    1.12371e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39726e+08    3.03471e+02   -1.09016e+02    4.74622e-07
+
+DD  step 59999 load imb.: force  3.7%
+
+           Step           Time         Lambda
+          60000      600.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40196e+08   -4.81639e+05    0.00000e+00    1.39714e+08    1.09954e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39725e+08    2.96942e+02   -1.53707e+02    4.70342e-07
+
+DD  step 64999 load imb.: force  1.4%
+
+           Step           Time         Lambda
+          65000      650.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40196e+08   -4.81844e+05    0.00000e+00    1.39714e+08    1.11176e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39725e+08    3.00243e+02   -4.35491e+01    4.79128e-07
+
+DD  step 69999 load imb.: force  1.5%
+
+           Step           Time         Lambda
+          70000      700.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40196e+08   -4.81860e+05    0.00000e+00    1.39714e+08    1.11594e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39725e+08    3.01371e+02    1.16658e+02    4.61029e-07
+
+DD  step 74999 load imb.: force  2.8%
+
+           Step           Time         Lambda
+          75000      750.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40196e+08   -4.82405e+05    0.00000e+00    1.39713e+08    1.10029e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39724e+08    2.97146e+02   -2.80235e+00    4.72051e-07
+
+DD  step 79999 load imb.: force  1.6%
+
+           Step           Time         Lambda
+          80000      800.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40197e+08   -4.83018e+05    0.00000e+00    1.39714e+08    1.13634e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39726e+08    3.06880e+02    2.62593e+02    5.74812e-07
+
+DD  step 84999 load imb.: force  0.3%
+
+           Step           Time         Lambda
+          85000      850.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40197e+08   -4.83682e+05    0.00000e+00    1.39713e+08    1.06917e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39724e+08    2.88740e+02    4.20688e+01    4.69007e-07
+
+DD  step 89999 load imb.: force  0.4%
+
+           Step           Time         Lambda
+          90000      900.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40198e+08   -4.83599e+05    0.00000e+00    1.39714e+08    1.16366e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39726e+08    3.14260e+02    1.27497e+02    4.67877e-07
+
+DD  step 94999 load imb.: force  0.4%
+
+           Step           Time         Lambda
+          95000      950.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40201e+08   -4.88504e+05    0.00000e+00    1.39712e+08    1.07465e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39723e+08    2.90221e+02   -1.71146e+02    6.86837e-07
+
+DD  step 99999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         100000     1000.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40201e+08   -4.91126e+05    0.00000e+00    1.39710e+08    1.00339e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39720e+08    2.70977e+02    1.85089e+02    2.23978e-06
+
+DD  step 104999 load imb.: force  0.4%
+
+           Step           Time         Lambda
+         105000     1050.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40205e+08   -4.91691e+05    0.00000e+00    1.39713e+08    1.17969e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39725e+08    3.18589e+02   -2.56194e+02    7.51553e-07
+
+DD  step 109999 load imb.: force  0.1%
+
+           Step           Time         Lambda
+         110000     1100.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40204e+08   -4.91729e+05    0.00000e+00    1.39713e+08    1.08884e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39723e+08    2.94054e+02   -1.53373e+02    1.19473e-06
+
+DD  step 114999 load imb.: force  0.5%
+
+           Step           Time         Lambda
+         115000     1150.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40211e+08   -4.91806e+05    0.00000e+00    1.39720e+08    1.24440e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39732e+08    3.36064e+02   -2.28501e+02    9.40661e-07
+
+Writing checkpoint, step 116580 at Tue Jan 22 18:44:13 2013
+
+
+DD  step 119999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         120000     1200.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40200e+08   -4.91812e+05    0.00000e+00    1.39708e+08    1.06626e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39719e+08    2.87955e+02   -1.48520e+01    1.43153e-06
+
+DD  step 124999 load imb.: force  0.1%
+
+           Step           Time         Lambda
+         125000     1250.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40207e+08   -4.91813e+05    0.00000e+00    1.39716e+08    1.30348e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39729e+08    3.52019e+02    8.58715e+01    1.52346e-06
+
+DD  step 129999 load imb.: force  0.6%
+
+           Step           Time         Lambda
+         130000     1300.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40198e+08   -4.91808e+05    0.00000e+00    1.39706e+08    1.02287e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39716e+08    2.76237e+02   -3.45342e+02    2.47264e-06
+
+DD  step 134999 load imb.: force  0.3%
+
+           Step           Time         Lambda
+         135000     1350.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40205e+08   -4.91358e+05    0.00000e+00    1.39714e+08    1.25253e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39727e+08    3.38260e+02    2.36150e+02    1.13464e-06
+
+DD  step 139999 load imb.: force  0.1%
+
+           Step           Time         Lambda
+         140000     1400.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40202e+08   -4.91882e+05    0.00000e+00    1.39710e+08    1.16628e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39721e+08    3.14967e+02   -5.85634e+02    1.77582e-06
+
+DD  step 144999 load imb.: force  0.0%
+
+           Step           Time         Lambda
+         145000     1450.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40204e+08   -4.91893e+05    0.00000e+00    1.39713e+08    1.09899e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39724e+08    2.96794e+02   -4.63440e+01    3.46939e-06
+
+DD  step 149999 load imb.: force  0.1%
+
+           Step           Time         Lambda
+         150000     1500.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40198e+08   -4.91905e+05    0.00000e+00    1.39706e+08    9.41416e+03
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39716e+08    2.54240e+02    7.32186e+01    1.04945e-06
+
+DD  step 154999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         155000     1550.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40205e+08   -4.91886e+05    0.00000e+00    1.39713e+08    9.20868e+03
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39722e+08    2.48691e+02    1.18757e+01    8.55176e-07
+
+DD  step 159999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         160000     1600.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40214e+08   -4.91862e+05    0.00000e+00    1.39722e+08    1.53308e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39738e+08    4.14024e+02   -8.48432e+02    3.07033e-06
+
+DD  step 164999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         165000     1650.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40198e+08   -4.91877e+05    0.00000e+00    1.39706e+08    9.10598e+03
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39715e+08    2.45917e+02   -3.00773e+02    1.21737e-06
+
+DD  step 169999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         170000     1700.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40199e+08   -4.91930e+05    0.00000e+00    1.39707e+08    9.10044e+03
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39716e+08    2.45767e+02    5.97773e+02    1.13305e-06
+
+DD  step 174999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         175000     1750.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40209e+08   -4.91669e+05    0.00000e+00    1.39717e+08    1.38362e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39731e+08    3.73661e+02    2.79689e+02    4.82488e-06
+
+DD  step 179999 load imb.: force  0.1%
+
+           Step           Time         Lambda
+         180000     1800.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40200e+08   -4.91881e+05    0.00000e+00    1.39708e+08    9.74543e+03
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39718e+08    2.63186e+02    3.37787e+02    1.20167e-06
+
+Writing checkpoint, step 181860 at Tue Jan 22 18:59:13 2013
+
+
+DD  step 184999 load imb.: force  0.3%
+
+           Step           Time         Lambda
+         185000     1850.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40205e+08   -4.91654e+05    0.00000e+00    1.39713e+08    1.20735e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39726e+08    3.26057e+02    6.56981e+02    3.72982e-06
+
+DD  step 189999 load imb.: force  0.3%
+
+           Step           Time         Lambda
+         190000     1900.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40210e+08   -4.91807e+05    0.00000e+00    1.39718e+08    1.27953e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39731e+08    3.45550e+02    5.86897e+02    3.72429e-06
+
+DD  step 194999 load imb.: force  0.3%
+
+           Step           Time         Lambda
+         195000     1950.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40209e+08   -4.91787e+05    0.00000e+00    1.39717e+08    1.56620e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39733e+08    4.22969e+02   -3.16477e+00    1.48224e-06
+
+DD  step 199999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         200000     2000.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40209e+08   -4.91799e+05    0.00000e+00    1.39717e+08    1.24720e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39730e+08    3.36820e+02    5.39321e+02    9.58262e-07
+
+DD  step 204999 load imb.: force  0.1%
+
+           Step           Time         Lambda
+         205000     2050.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40204e+08   -4.91839e+05    0.00000e+00    1.39712e+08    1.03270e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39722e+08    2.78893e+02    4.44927e+02    8.32249e-07
+
+DD  step 209999 load imb.: force  0.1%
+
+           Step           Time         Lambda
+         210000     2100.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40208e+08   -4.91742e+05    0.00000e+00    1.39716e+08    1.38454e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39730e+08    3.73910e+02   -4.90958e+01    2.07635e-06
+
+DD  step 214999 load imb.: force  0.1%
+
+           Step           Time         Lambda
+         215000     2150.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40203e+08   -4.91797e+05    0.00000e+00    1.39712e+08    1.22958e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39724e+08    3.32063e+02   -5.54544e+01    2.50155e-06
+
+DD  step 219999 load imb.: force  0.0%
+
+           Step           Time         Lambda
+         220000     2200.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40212e+08   -4.91810e+05    0.00000e+00    1.39720e+08    1.31362e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39733e+08    3.54759e+02   -4.09857e+02    2.78104e-06
+
+DD  step 224999 load imb.: force  0.5%
+
+           Step           Time         Lambda
+         225000     2250.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40207e+08   -4.91778e+05    0.00000e+00    1.39715e+08    1.42969e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39729e+08    3.86103e+02    2.11309e+02    1.35884e-06
+
+DD  step 229999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         230000     2300.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40211e+08   -4.91770e+05    0.00000e+00    1.39719e+08    1.56262e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39735e+08    4.22004e+02   -6.91319e+02    1.52473e-06
+
+DD  step 234999 load imb.: force  0.6%
+
+           Step           Time         Lambda
+         235000     2350.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40201e+08   -4.91741e+05    0.00000e+00    1.39709e+08    1.22476e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39721e+08    3.30760e+02    5.45609e+01    2.58084e-06
+
+DD  step 239999 load imb.: force  0.5%
+
+           Step           Time         Lambda
+         240000     2400.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40210e+08   -4.91806e+05    0.00000e+00    1.39718e+08    1.36431e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39732e+08    3.68446e+02    3.25606e+02    8.44918e-07
+
+DD  step 244999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         245000     2450.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40208e+08   -4.91785e+05    0.00000e+00    1.39716e+08    1.14857e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39728e+08    3.10185e+02    3.30345e+02    1.03736e-06
+
+Writing checkpoint, step 246840 at Tue Jan 22 19:14:13 2013
+
+
+DD  step 249999 load imb.: force  0.2%
+
+           Step           Time         Lambda
+         250000     2500.00000        0.00000
+
+Writing checkpoint, step 250000 at Tue Jan 22 19:14:56 2013
+
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40207e+08   -4.91706e+05    0.00000e+00    1.39715e+08    1.18928e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39727e+08    3.21177e+02    4.10298e+02    7.35337e-07
+
+	<======  ###############  ==>
+	<====  A V E R A G E S  ====>
+	<==  ###############  ======>
+
+	Statistics over 250001 steps using 2501 frames
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.40202e+08   -4.87311e+05    0.00000e+00    1.39715e+08    1.18643e+04
+   Total Energy    Temperature Pressure (bar)   Constr. rmsd
+    1.39726e+08    3.20409e+02    3.26401e+01    0.00000e+00
+
+          Box-X          Box-Y          Box-Z
+    1.09308e+01    1.09308e+01    1.09308e+01
+
+   Total Virial (kJ/mol)
+    6.94443e+02    1.55560e+03    3.05806e+02
+    1.55554e+03    3.70915e+03   -1.16401e+03
+    3.05759e+02   -1.16402e+03    3.63172e+03
+
+   Pressure (bar)
+    6.71136e+01   -4.24913e+01    7.53339e+00
+   -4.24895e+01    9.41291e+00    3.23654e+01
+    7.53458e+00    3.23659e+01    2.13938e+01
+
+
+	M E G A - F L O P S   A C C O U N T I N G
+
+ NB=Group-cutoff nonbonded kernels    NxN=N-by-N cluster Verlet kernels
+ RF=Reaction-Field  VdW=Van der Waals  QSTab=quadratic-spline table
+ W3=SPC/TIP3p  W4=TIP4p (single or pairs)
+ V&F=Potential and force  V=Potential only  F=Force only
+
+ Computing:                               M-Number         M-Flops  % Flops
+-----------------------------------------------------------------------------
+ NB VdW [V&F]                        114377.081404      114377.081     1.1
+ NB VdW [F]                         9550404.590592     9550404.591    93.8
+ NS-Pairs                             13012.473496      273261.943     2.7
+ Reset In Box                            49.500990         148.503     0.0
+ CG-CoM                                 198.007920         594.024     0.0
+ Angles                                 742.502970      124740.499     1.2
+ Virial                                 202.504050        3645.073     0.0
+ Stop-CM                                  9.907920          99.079     0.0
+ P-Coupling                             990.003960        5940.024     0.1
+ Calc-Ekin                              396.007920       10692.214     0.1
+ Lincs                                  742.508910       44550.535     0.4
+ Lincs-Mat                             8910.106920       35640.428     0.4
+ Constraint-V                          1485.011880       11880.095     0.1
+ Constraint-Vir                         148.502970        3564.071     0.0
+-----------------------------------------------------------------------------
+ Total                                                10179538.159   100.0
+-----------------------------------------------------------------------------
+
+
+    D O M A I N   D E C O M P O S I T I O N   S T A T I S T I C S
+
+ av. #atoms communicated per step for force:  2 x 2736.2
+
+ Average load imbalance: 1.1 %
+ Part of the total run time spent waiting due to load imbalance: 0.7 %
+
+
+     R E A L   C Y C L E   A N D   T I M E   A C C O U N T I N G
+
+ Computing:         Nodes   Th.     Count  Wall t (s)     G-Cycles       %
+-----------------------------------------------------------------------------
+ Domain decomp.         2    1      50001      47.543      228.223     1.3
+ DD comm. load          2    1        501       0.012        0.057     0.0
+ Neighbor search        2    1      50001     399.888     1919.597    11.0
+ Comm. coord.           2    1     250001      15.999       76.798     0.4
+ Force                  2    1     250001    2938.049    14103.625    80.6
+ Wait + Comm. F         2    1     250001     141.062      677.143     3.9
+ Write traj.            2    1        505       0.379        1.817     0.0
+ Update                 2    1     250001      14.604       70.104     0.4
+ Constraints            2    1     250001      63.773      306.134     1.8
+ Comm. energies         2    1      50001       7.681       36.871     0.2
+ Rest                   2                      14.826       71.168     0.4
+-----------------------------------------------------------------------------
+ Total                  2                    3643.815    17491.538   100.0
+-----------------------------------------------------------------------------
+
+               Core t (s)   Wall t (s)        (%)
+       Time:     6904.080     3643.815      189.5
+                         1h00:43
+                 (ns/day)    (hour/ns)
+Performance:       59.279        0.405
+Finished mdrun on node 0 Tue Jan 22 19:14:56 2013

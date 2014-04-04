@@ -1,0 +1,827 @@
+Log file opened on Thu Jan 10 17:05:19 2013
+Host: james10uc  pid: 8672  nodeid: 0  nnodes:  1
+The Gromacs distribution was built Tue Apr  6 12:54:40 BST 2010 by
+james@james10uc (Linux 2.6.31-20-generic x86_64)
+
+
+                         :-)  G  R  O  M  A  C  S  (-:
+
+                     Gnomes, ROck Monsters And Chili Sauce
+
+               :-)  VERSION v4.0.7-17-g49b10d5dc93f1ed2411d  (-:
+
+
+      Written by David van der Spoel, Erik Lindahl, Berk Hess, and others.
+       Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+             Copyright (c) 2001-2008, The GROMACS development team,
+            check out http://www.gromacs.org for more information.
+
+         This program is free software; you can redistribute it and/or
+          modify it under the terms of the GNU General Public License
+         as published by the Free Software Foundation; either version 2
+             of the License, or (at your option) any later version.
+
+                                :-)  mdrun  (-:
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess and C. Kutzner and D. van der Spoel and E. Lindahl
+GROMACS 4: Algorithms for highly efficient, load-balanced, and scalable
+molecular simulation
+J. Chem. Theory Comput. 4 (2008) pp. 435-447
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+D. van der Spoel, E. Lindahl, B. Hess, G. Groenhof, A. E. Mark and H. J. C.
+Berendsen
+GROMACS: Fast, Flexible and Free
+J. Comp. Chem. 26 (2005) pp. 1701-1719
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+E. Lindahl and B. Hess and D. van der Spoel
+GROMACS 3.0: A package for molecular simulation and trajectory analysis
+J. Mol. Mod. 7 (2001) pp. 306-317
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+H. J. C. Berendsen, D. van der Spoel and R. van Drunen
+GROMACS: A message-passing parallel molecular dynamics implementation
+Comp. Phys. Comm. 91 (1995) pp. 43-56
+-------- -------- --- Thank You --- -------- --------
+
+Input Parameters:
+   integrator           = md
+   nsteps               = 250000
+   init_step            = 0
+   ns_type              = Grid
+   nstlist              = 5
+   ndelta               = 2
+   nstcomm              = 1
+   comm_mode            = Linear
+   nstlog               = 5000
+   nstxout              = 500
+   nstvout              = 5000
+   nstfout              = 0
+   nstenergy            = 5000
+   nstxtcout            = 5000
+   init_t               = 0
+   delta_t              = 0.02
+   xtcprec              = 1000
+   nkx                  = 0
+   nky                  = 0
+   nkz                  = 0
+   pme_order            = 4
+   ewald_rtol           = 1e-05
+   ewald_geometry       = 0
+   epsilon_surface      = 0
+   optimize_fft         = FALSE
+   ePBC                 = xyz
+   bPeriodicMols        = FALSE
+   bContinuation        = FALSE
+   bShakeSOR            = FALSE
+   etc                  = V-rescale
+   epc                  = Berendsen
+   epctype              = Isotropic
+   tau_p                = 5
+   ref_p (3x3):
+      ref_p[    0]={ 1.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref_p[    1]={ 0.00000e+00,  1.00000e+00,  0.00000e+00}
+      ref_p[    2]={ 0.00000e+00,  0.00000e+00,  1.00000e+00}
+   compress (3x3):
+      compress[    0]={ 4.50000e-05,  0.00000e+00,  0.00000e+00}
+      compress[    1]={ 0.00000e+00,  4.50000e-05,  0.00000e+00}
+      compress[    2]={ 0.00000e+00,  0.00000e+00,  4.50000e-05}
+   refcoord_scaling     = No
+   posres_com (3):
+      posres_com[0]= 0.00000e+00
+      posres_com[1]= 0.00000e+00
+      posres_com[2]= 0.00000e+00
+   posres_comB (3):
+      posres_comB[0]= 0.00000e+00
+      posres_comB[1]= 0.00000e+00
+      posres_comB[2]= 0.00000e+00
+   andersen_seed        = 815131
+   rlist                = 3.85
+   rtpi                 = 0.05
+   coulombtype          = Cut-off
+   rcoulomb_switch      = 0
+   rcoulomb             = 3.85
+   vdwtype              = Cut-off
+   rvdw_switch          = 0
+   rvdw                 = 3.85
+   epsilon_r            = 1
+   epsilon_rf           = 1
+   tabext               = 1
+   implicit_solvent     = No
+   gb_algorithm         = Still
+   gb_epsilon_solvent   = 80
+   nstgbradii           = 1
+   rgbradii             = 2
+   gb_saltconc          = 0
+   gb_obc_alpha         = 1
+   gb_obc_beta          = 0.8
+   gb_obc_gamma         = 4.85
+   sa_surface_tension   = 2.092
+   DispCorr             = No
+   free_energy          = no
+   init_lambda          = 0
+   sc_alpha             = 0
+   sc_power             = 0
+   sc_sigma             = 0.3
+   delta_lambda         = 0
+   nwall                = 0
+   wall_type            = 9-3
+   wall_atomtype[0]     = -1
+   wall_atomtype[1]     = -1
+   wall_density[0]      = 0
+   wall_density[1]      = 0
+   wall_ewald_zfac      = 3
+   pull                 = no
+   disre                = No
+   disre_weighting      = Conservative
+   disre_mixed          = FALSE
+   dr_fc                = 1000
+   dr_tau               = 0
+   nstdisreout          = 100
+   orires_fc            = 0
+   orires_tau           = 0
+   nstorireout          = 100
+   dihre-fc             = 1000
+   em_stepsize          = 0.1
+   em_tol               = 100
+   niter                = 20
+   fc_stepsize          = 0
+   nstcgsteep           = 1000
+   nbfgscorr            = 10
+   ConstAlg             = Lincs
+   shake_tol            = 0.0001
+   lincs_order          = 4
+   lincs_warnangle      = 30
+   lincs_iter           = 1
+   bd_fric              = 0.1
+   ld_seed              = 1993
+   cos_accel            = 0
+   deform (3x3):
+      deform[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   userint1             = 0
+   userint2             = 0
+   userint3             = 0
+   userint4             = 0
+   userreal1            = 0
+   userreal2            = 0
+   userreal3            = 0
+   userreal4            = 0
+grpopts:
+   nrdf:        6997
+   ref_t:         300
+   tau_t:         0.2
+anneal:          No
+ann_npoints:           0
+   acc:	           0           0           0
+   nfreeze:           N           N           N
+   energygrp_flags[  0]: 0
+   efield-x:
+      n = 0
+   efield-xt:
+      n = 0
+   efield-y:
+      n = 0
+   efield-yt:
+      n = 0
+   efield-z:
+      n = 0
+   efield-zt:
+      n = 0
+   bQMMM                = FALSE
+   QMconstraints        = 0
+   QMMMscheme           = 0
+   scalefactor          = 1
+qm_opts:
+   ngQM                 = 0
+Table routines are used for coulomb: FALSE
+Table routines are used for vdw:     FALSE
+Cut-off's:   NS: 3.85   Coulomb: 3.85   LJ: 3.85
+System total charge: 0.000
+Configuring nonbonded kernels...
+Testing x86_64 SSE support... present.
+
+
+Removing pbc first time
+
+Initializing LINear Constraint Solver
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess and H. Bekker and H. J. C. Berendsen and J. G. E. M. Fraaije
+LINCS: A Linear Constraint Solver for molecular simulations
+J. Comp. Chem. 18 (1997) pp. 1463-1472
+-------- -------- --- Thank You --- -------- --------
+
+The number of constraints is 2000
+Center of mass motion removal mode is Linear
+We have the following groups for center of mass motion removal:
+  0:  rest
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+G. Bussi, D. Donadio and M. Parrinello
+Canonical sampling through velocity rescaling
+J. Chem. Phys. 126 (2007) pp. 014101
+-------- -------- --- Thank You --- -------- --------
+
+There are: 3000 Atoms
+Max number of connections per atom is 4
+Total number of connections is 8000
+Max number of graph edges per atom is 2
+Total number of graph edges is 4000
+
+Constraining the starting coordinates (step 0)
+
+Constraining the coordinates at t0-dt (step 0)
+RMS relative constraint deviation after constraining: 4.30e-07
+Initial temperature: 296.071 K
+
+Started mdrun on node 0 Thu Jan 10 17:05:19 2013
+
+           Step           Time         Lambda
+              0        0.00000        0.00000
+
+Grid: 5 x 5 x 5 cells
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    7.77647e+02   -3.62627e+05    0.00000e+00   -3.61849e+05    8.82380e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.53025e+05    3.03345e+02   -2.46630e+01    4.31478e-07
+
+           Step           Time         Lambda
+           5000      100.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    9.66851e+02   -3.64231e+05    0.00000e+00   -3.63265e+05    8.61501e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.54650e+05    2.96168e+02   -1.18952e+00    4.36449e-07
+
+           Step           Time         Lambda
+          10000      200.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.02308e+03   -3.64915e+05    0.00000e+00   -3.63892e+05    8.86477e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55027e+05    3.04754e+02   -2.63429e+01    4.44029e-07
+
+           Step           Time         Lambda
+          15000      300.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.01630e+03   -3.64929e+05    0.00000e+00   -3.63913e+05    8.57939e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55334e+05    2.94943e+02    6.49051e+00    4.38246e-07
+
+           Step           Time         Lambda
+          20000      400.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.11181e+03   -3.65202e+05    0.00000e+00   -3.64091e+05    8.90875e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55182e+05    3.06266e+02    7.65442e+00    4.26340e-07
+
+           Step           Time         Lambda
+          25000      500.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.11778e+03   -3.65411e+05    0.00000e+00   -3.64293e+05    8.49702e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55796e+05    2.92111e+02   -2.68178e+01    4.32113e-07
+
+           Step           Time         Lambda
+          30000      600.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.12103e+03   -3.65576e+05    0.00000e+00   -3.64455e+05    8.71913e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55736e+05    2.99747e+02    2.09231e+01    4.42379e-07
+
+           Step           Time         Lambda
+          35000      700.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.15406e+03   -3.65936e+05    0.00000e+00   -3.64782e+05    8.64927e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56132e+05    2.97345e+02   -4.04537e+01    4.46596e-07
+
+           Step           Time         Lambda
+          40000      800.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.24356e+03   -3.65869e+05    0.00000e+00   -3.64625e+05    8.62239e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56003e+05    2.96421e+02   -2.17439e+01    4.34804e-07
+
+           Step           Time         Lambda
+          45000      900.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.27570e+03   -3.65768e+05    0.00000e+00   -3.64492e+05    8.57891e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55914e+05    2.94926e+02    1.06556e+01    4.42638e-07
+
+           Step           Time         Lambda
+          50000     1000.00000        0.00000
+
+Writing checkpoint, step 50000 at Thu Jan 10 17:22:08 2013
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.24180e+03   -3.65990e+05    0.00000e+00   -3.64748e+05    8.51613e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56232e+05    2.92768e+02    3.86508e+00    4.36736e-07
+
+           Step           Time         Lambda
+          55000     1100.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.30006e+03   -3.65953e+05    0.00000e+00   -3.64653e+05    8.56365e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56089e+05    2.94402e+02   -1.50082e+01    4.39927e-07
+
+           Step           Time         Lambda
+          60000     1200.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.32819e+03   -3.65857e+05    0.00000e+00   -3.64529e+05    8.79272e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55736e+05    3.02277e+02    2.59366e+01    4.32811e-07
+
+           Step           Time         Lambda
+          65000     1300.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.33868e+03   -3.66308e+05    0.00000e+00   -3.64970e+05    8.58574e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56384e+05    2.95161e+02    8.90254e-01    4.28207e-07
+
+           Step           Time         Lambda
+          70000     1400.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.43172e+03   -3.66218e+05    0.00000e+00   -3.64786e+05    8.78758e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55999e+05    3.02100e+02    9.60375e+00    4.32002e-07
+
+           Step           Time         Lambda
+          75000     1500.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.44351e+03   -3.65986e+05    0.00000e+00   -3.64543e+05    9.04564e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55497e+05    3.10972e+02    1.50296e+01    4.33131e-07
+
+           Step           Time         Lambda
+          80000     1600.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.41984e+03   -3.66240e+05    0.00000e+00   -3.64820e+05    8.56096e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56259e+05    2.94309e+02   -2.91086e+01    4.31445e-07
+
+           Step           Time         Lambda
+          85000     1700.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.46633e+03   -3.66438e+05    0.00000e+00   -3.64972e+05    8.94494e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56027e+05    3.07510e+02    2.74764e+01    4.32290e-07
+
+           Step           Time         Lambda
+          90000     1800.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.53750e+03   -3.66211e+05    0.00000e+00   -3.64674e+05    8.72715e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55947e+05    3.00022e+02    1.19390e+01    4.37443e-07
+
+           Step           Time         Lambda
+          95000     1900.00000        0.00000
+
+Writing checkpoint, step 95000 at Thu Jan 10 17:36:43 2013
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.47943e+03   -3.66202e+05    0.00000e+00   -3.64723e+05    8.76803e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55955e+05    3.01428e+02    3.00276e+01    4.27507e-07
+
+           Step           Time         Lambda
+         100000     2000.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.53351e+03   -3.66457e+05    0.00000e+00   -3.64924e+05    8.65511e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56268e+05    2.97546e+02   -2.81893e+01    4.29011e-07
+
+           Step           Time         Lambda
+         105000     2100.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.59496e+03   -3.66558e+05    0.00000e+00   -3.64964e+05    8.54045e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56423e+05    2.93604e+02    2.72900e+00    4.22897e-07
+
+           Step           Time         Lambda
+         110000     2200.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.72014e+03   -3.66512e+05    0.00000e+00   -3.64792e+05    8.73736e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56055e+05    3.00373e+02    4.39763e+00    4.37203e-07
+
+           Step           Time         Lambda
+         115000     2300.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.81647e+03   -3.66545e+05    0.00000e+00   -3.64729e+05    9.04901e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55680e+05    3.11087e+02    4.72192e+00    4.30598e-07
+
+           Step           Time         Lambda
+         120000     2400.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.65024e+03   -3.66583e+05    0.00000e+00   -3.64932e+05    8.85531e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56077e+05    3.04428e+02    1.02947e+01    4.48324e-07
+
+           Step           Time         Lambda
+         125000     2500.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.68775e+03   -3.66676e+05    0.00000e+00   -3.64988e+05    8.64788e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56341e+05    2.97297e+02   -2.65178e+00    4.38441e-07
+
+           Step           Time         Lambda
+         130000     2600.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.69600e+03   -3.66617e+05    0.00000e+00   -3.64921e+05    8.85046e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56071e+05    3.04262e+02   -1.35710e+01    4.38977e-07
+
+           Step           Time         Lambda
+         135000     2700.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.73146e+03   -3.66692e+05    0.00000e+00   -3.64961e+05    8.92960e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56031e+05    3.06982e+02    3.51056e+01    4.41459e-07
+
+           Step           Time         Lambda
+         140000     2800.00000        0.00000
+
+Writing checkpoint, step 140000 at Thu Jan 10 17:51:26 2013
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.74143e+03   -3.66823e+05    0.00000e+00   -3.65082e+05    8.74814e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56334e+05    3.00744e+02    1.71356e+00    4.32142e-07
+
+           Step           Time         Lambda
+         145000     2900.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.89871e+03   -3.66744e+05    0.00000e+00   -3.64845e+05    8.83561e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56009e+05    3.03751e+02    6.30605e+01    4.50406e-07
+
+           Step           Time         Lambda
+         150000     3000.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.81734e+03   -3.66881e+05    0.00000e+00   -3.65064e+05    8.62643e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56438e+05    2.96560e+02   -5.39706e+01    4.44700e-07
+
+           Step           Time         Lambda
+         155000     3100.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.89406e+03   -3.66741e+05    0.00000e+00   -3.64846e+05    8.62254e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56224e+05    2.96426e+02   -1.94522e+01    4.24584e-07
+
+           Step           Time         Lambda
+         160000     3200.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.87747e+03   -3.67097e+05    0.00000e+00   -3.65219e+05    8.62373e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56596e+05    2.96467e+02    8.96974e+00    4.59470e-07
+
+           Step           Time         Lambda
+         165000     3300.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.87121e+03   -3.66820e+05    0.00000e+00   -3.64949e+05    8.67378e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56275e+05    2.98188e+02   -1.01347e+01    4.38422e-07
+
+           Step           Time         Lambda
+         170000     3400.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.89192e+03   -3.66949e+05    0.00000e+00   -3.65058e+05    8.62069e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56437e+05    2.96363e+02    1.23345e+01    4.32452e-07
+
+           Step           Time         Lambda
+         175000     3500.00000        0.00000
+
+Writing checkpoint, step 175000 at Thu Jan 10 18:06:02 2013
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.96946e+03   -3.67042e+05    0.00000e+00   -3.65072e+05    8.67901e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56393e+05    2.98368e+02   -4.44112e+01    4.33898e-07
+
+           Step           Time         Lambda
+         180000     3600.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.03527e+03   -3.66981e+05    0.00000e+00   -3.64946e+05    8.67211e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56274e+05    2.98130e+02   -1.11848e+01    4.37510e-07
+
+           Step           Time         Lambda
+         185000     3700.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.04466e+03   -3.67266e+05    0.00000e+00   -3.65221e+05    8.83710e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56384e+05    3.03802e+02    1.61909e+01    4.27335e-07
+
+           Step           Time         Lambda
+         190000     3800.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.08396e+03   -3.66931e+05    0.00000e+00   -3.64847e+05    8.66386e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56184e+05    2.97847e+02   -1.17417e+01    4.44506e-07
+
+           Step           Time         Lambda
+         195000     3900.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.09954e+03   -3.67128e+05    0.00000e+00   -3.65028e+05    8.70032e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56328e+05    2.99100e+02   -7.45214e+00    4.33935e-07
+
+           Step           Time         Lambda
+         200000     4000.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.05554e+03   -3.67283e+05    0.00000e+00   -3.65228e+05    8.56359e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56664e+05    2.94400e+02   -2.67512e+01    4.38779e-07
+
+           Step           Time         Lambda
+         205000     4100.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.25995e+03   -3.67142e+05    0.00000e+00   -3.64882e+05    8.87468e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56008e+05    3.05094e+02    1.82427e+01    4.22014e-07
+
+           Step           Time         Lambda
+         210000     4200.00000        0.00000
+
+Writing checkpoint, step 210000 at Thu Jan 10 18:20:24 2013
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.03146e+03   -3.67311e+05    0.00000e+00   -3.65280e+05    9.07210e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56208e+05    3.11881e+02   -3.62100e+01    4.23667e-07
+
+           Step           Time         Lambda
+         215000     4300.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.07447e+03   -3.67188e+05    0.00000e+00   -3.65114e+05    8.71056e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56403e+05    2.99452e+02    6.41812e+01    4.47888e-07
+
+           Step           Time         Lambda
+         220000     4400.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.19240e+03   -3.67302e+05    0.00000e+00   -3.65109e+05    8.76485e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56344e+05    3.01319e+02   -1.43988e+01    4.47805e-07
+
+           Step           Time         Lambda
+         225000     4500.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.28688e+03   -3.67291e+05    0.00000e+00   -3.65004e+05    8.72659e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56277e+05    3.00003e+02   -2.55869e+01    4.33779e-07
+
+           Step           Time         Lambda
+         230000     4600.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.22924e+03   -3.67185e+05    0.00000e+00   -3.64956e+05    8.88189e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56074e+05    3.05342e+02    3.79120e+01    4.37800e-07
+
+           Step           Time         Lambda
+         235000     4700.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.35924e+03   -3.67108e+05    0.00000e+00   -3.64749e+05    8.77537e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.55973e+05    3.01680e+02    8.42265e-01    4.32684e-07
+
+           Step           Time         Lambda
+         240000     4800.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.21721e+03   -3.67304e+05    0.00000e+00   -3.65087e+05    8.77481e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56312e+05    3.01661e+02    1.46504e+01    4.49474e-07
+
+           Step           Time         Lambda
+         245000     4900.00000        0.00000
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.04322e+03   -3.67703e+05    0.00000e+00   -3.65660e+05    8.67543e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56985e+05    2.98244e+02   -3.14937e+01    4.39117e-07
+
+           Step           Time         Lambda
+         250000     5000.00000        0.00000
+
+Writing checkpoint, step 250000 at Thu Jan 10 18:34:17 2013
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    2.21188e+03   -3.67370e+05    0.00000e+00   -3.65158e+05    8.75242e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56406e+05    3.00891e+02    6.82278e+00    4.29718e-07
+
+	<======  ###############  ==>
+	<====  A V E R A G E S  ====>
+	<==  ###############  ======>
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    1.68461e+03   -3.66480e+05    0.00000e+00   -3.64796e+05    8.72463e+03
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -3.56071e+05    2.99936e+02    8.29115e-01    0.00000e+00
+
+          Box-X          Box-Y          Box-Z         Volume   Density (SI)
+    1.06347e+01    1.06347e+01    1.06347e+01    1.20275e+03    1.51952e+03
+             pV
+    6.00101e+01
+
+   Total Virial (kJ/mol)
+    2.90753e+03    1.36054e+03    1.67456e+03
+    1.36054e+03    2.18022e+03    8.79032e+02
+    1.67456e+03    8.79032e+02    3.54687e+03
+
+   Pressure (bar)
+   -7.46406e-01   -3.74274e+01   -4.60519e+01
+   -3.74274e+01    2.10354e+01   -2.44829e+01
+   -4.60519e+01   -2.44830e+01   -1.78017e+01
+
+   Total Dipole (Debye)
+    0.00000e+00    0.00000e+00    0.00000e+00
+
+	<======  ###############################  ==>
+	<====  R M S - F L U C T U A T I O N S  ====>
+	<==  ###############################  ======>
+
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    4.06024e+02    7.80349e+02    0.00000e+00    4.51564e+02    1.46254e+02
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+    4.72315e+02    5.02793e+00    2.63139e+01    0.00000e+00
+
+          Box-X          Box-Y          Box-Z         Volume   Density (SI)
+    4.53552e-03    4.53552e-03    4.53552e-03    1.53966e+00    1.94211e+00
+             pV
+    1.90557e+03
+
+   Total Virial (kJ/mol)
+    3.54768e+03    2.76919e+03    2.98072e+03
+    2.76919e+03    3.20335e+03    2.74534e+03
+    2.98072e+03    2.74534e+03    3.35416e+03
+
+   Pressure (bar)
+    9.79065e+01    7.65105e+01    8.23495e+01
+    7.65105e+01    8.84661e+01    7.58569e+01
+    8.23495e+01    7.58569e+01    9.25989e+01
+
+   Total Dipole (Debye)
+    0.00000e+00    0.00000e+00    0.00000e+00
+
+
+	M E G A - F L O P S   A C C O U N T I N G
+
+   RF=Reaction-Field  FE=Free Energy  SCFE=Soft-Core/Free Energy
+   T=Tabulated        W3=SPC/TIP3p    W4=TIP4p (single or pairs)
+   NF=No Forces
+
+ Computing:                         M-Number         M-Flops  % Flops
+-----------------------------------------------------------------------
+ LJ                            222573.957363     7344940.593    93.7
+ Outer nonbonded loop            2869.608055       28696.081     0.4
+ NS-Pairs                       13562.166231      284805.491     3.6
+ Reset In Box                      50.001000         150.003     0.0
+ Shift-X                         1500.006000        9000.036     0.1
+ CG-CoM                           150.003000         450.009     0.0
+ Angles                           250.001000       42000.168     0.5
+ Virial                           761.253045       13702.555     0.2
+ Update                           750.003000       23250.093     0.3
+ Stop-CM                          750.003000        7500.030     0.1
+ P-Coupling                       750.003000        4500.018     0.1
+ Calc-Ekin                        750.006000       20250.162     0.3
+ Lincs                            500.006000       30000.360     0.4
+ Lincs-Mat                       3000.036000       12000.144     0.2
+ Constraint-V                    1000.008000        8000.064     0.1
+ Constraint-Vir                   500.002000       12000.048     0.2
+-----------------------------------------------------------------------
+ Total                                           7841245.854   100.0
+-----------------------------------------------------------------------
+
+
+     R E A L   C Y C L E   A N D   T I M E   A C C O U N T I N G
+
+ Computing:         Nodes     Number     G-Cycles    Seconds     %
+-----------------------------------------------------------------------
+ Neighbor search        1      50001     2530.764     1054.5    19.8
+ Force                  1     250001     9745.477     4060.6    76.1
+ Write traj.            1        501        0.938        0.4     0.0
+ Update                 1     250001      185.232       77.2     1.4
+ Constraints            1     250001      214.751       89.5     1.7
+ Rest                   1                 134.216       55.9     1.0
+-----------------------------------------------------------------------
+ Total                  1               12811.378     5338.0   100.0
+-----------------------------------------------------------------------
+
+               NODE (s)   Real (s)      (%)
+       Time:   4065.110   5338.000     76.2
+                       1h07:45
+               (Mnbf/s)   (GFlops)   (ns/day)  (hour/ns)
+Performance:     54.752      1.929    106.271      0.226
+Finished mdrun on node 0 Thu Jan 10 18:34:17 2013

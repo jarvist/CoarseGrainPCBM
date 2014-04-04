@@ -1,0 +1,20 @@
+# This file was created Thu Jan 10 15:44:19 2013
+# by the following command:
+# g_bond 
+#
+# g_bond is part of G R O M A C S:
+#
+# Green Red Orange Magenta Azure Cyan Skyblue
+#
+@    title "Average distance"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "Distance (nm)"
+@TYPE xy
+   0.0000 0.64000
+ 100.0000 0.64001
+ 200.0000 0.64000
+ 300.0000 0.64001
+ 400.0000 0.63998
+ 500.0000 0.64001
+ 600.0000 0.64002
+ 700.0000 0.64000

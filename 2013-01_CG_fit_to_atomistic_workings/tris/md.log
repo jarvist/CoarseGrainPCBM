@@ -1,0 +1,277 @@
+Log file opened on Thu Jan 10 19:00:46 2013
+Host: james10uc  pid: 11111  nodeid: 0  nnodes:  1
+The Gromacs distribution was built Tue Apr  6 12:54:40 BST 2010 by
+james@james10uc (Linux 2.6.31-20-generic x86_64)
+
+
+                         :-)  G  R  O  M  A  C  S  (-:
+
+                               Grunge ROck MAChoS
+
+               :-)  VERSION v4.0.7-17-g49b10d5dc93f1ed2411d  (-:
+
+
+      Written by David van der Spoel, Erik Lindahl, Berk Hess, and others.
+       Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+             Copyright (c) 2001-2008, The GROMACS development team,
+            check out http://www.gromacs.org for more information.
+
+         This program is free software; you can redistribute it and/or
+          modify it under the terms of the GNU General Public License
+         as published by the Free Software Foundation; either version 2
+             of the License, or (at your option) any later version.
+
+                                :-)  mdrun  (-:
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess and C. Kutzner and D. van der Spoel and E. Lindahl
+GROMACS 4: Algorithms for highly efficient, load-balanced, and scalable
+molecular simulation
+J. Chem. Theory Comput. 4 (2008) pp. 435-447
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+D. van der Spoel, E. Lindahl, B. Hess, G. Groenhof, A. E. Mark and H. J. C.
+Berendsen
+GROMACS: Fast, Flexible and Free
+J. Comp. Chem. 26 (2005) pp. 1701-1719
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+E. Lindahl and B. Hess and D. van der Spoel
+GROMACS 3.0: A package for molecular simulation and trajectory analysis
+J. Mol. Mod. 7 (2001) pp. 306-317
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+H. J. C. Berendsen, D. van der Spoel and R. van Drunen
+GROMACS: A message-passing parallel molecular dynamics implementation
+Comp. Phys. Comm. 91 (1995) pp. 43-56
+-------- -------- --- Thank You --- -------- --------
+
+Input Parameters:
+   integrator           = md
+   nsteps               = 250000
+   init_step            = 0
+   ns_type              = Grid
+   nstlist              = 5
+   ndelta               = 2
+   nstcomm              = 1
+   comm_mode            = Linear
+   nstlog               = 5000
+   nstxout              = 500
+   nstvout              = 5000
+   nstfout              = 0
+   nstenergy            = 5000
+   nstxtcout            = 5000
+   init_t               = 0
+   delta_t              = 0.01
+   xtcprec              = 1000
+   nkx                  = 0
+   nky                  = 0
+   nkz                  = 0
+   pme_order            = 4
+   ewald_rtol           = 1e-05
+   ewald_geometry       = 0
+   epsilon_surface      = 0
+   optimize_fft         = FALSE
+   ePBC                 = xyz
+   bPeriodicMols        = FALSE
+   bContinuation        = FALSE
+   bShakeSOR            = FALSE
+   etc                  = V-rescale
+   epc                  = Berendsen
+   epctype              = Isotropic
+   tau_p                = 5
+   ref_p (3x3):
+      ref_p[    0]={ 1.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref_p[    1]={ 0.00000e+00,  1.00000e+00,  0.00000e+00}
+      ref_p[    2]={ 0.00000e+00,  0.00000e+00,  1.00000e+00}
+   compress (3x3):
+      compress[    0]={ 4.50000e-05,  0.00000e+00,  0.00000e+00}
+      compress[    1]={ 0.00000e+00,  4.50000e-05,  0.00000e+00}
+      compress[    2]={ 0.00000e+00,  0.00000e+00,  4.50000e-05}
+   refcoord_scaling     = No
+   posres_com (3):
+      posres_com[0]= 0.00000e+00
+      posres_com[1]= 0.00000e+00
+      posres_com[2]= 0.00000e+00
+   posres_comB (3):
+      posres_comB[0]= 0.00000e+00
+      posres_comB[1]= 0.00000e+00
+      posres_comB[2]= 0.00000e+00
+   andersen_seed        = 815131
+   rlist                = 3.85
+   rtpi                 = 0.05
+   coulombtype          = Cut-off
+   rcoulomb_switch      = 0
+   rcoulomb             = 3.85
+   vdwtype              = Cut-off
+   rvdw_switch          = 0
+   rvdw                 = 3.85
+   epsilon_r            = 1
+   epsilon_rf           = 1
+   tabext               = 1
+   implicit_solvent     = No
+   gb_algorithm         = Still
+   gb_epsilon_solvent   = 80
+   nstgbradii           = 1
+   rgbradii             = 2
+   gb_saltconc          = 0
+   gb_obc_alpha         = 1
+   gb_obc_beta          = 0.8
+   gb_obc_gamma         = 4.85
+   sa_surface_tension   = 2.092
+   DispCorr             = No
+   free_energy          = no
+   init_lambda          = 0
+   sc_alpha             = 0
+   sc_power             = 0
+   sc_sigma             = 0.3
+   delta_lambda         = 0
+   nwall                = 0
+   wall_type            = 9-3
+   wall_atomtype[0]     = -1
+   wall_atomtype[1]     = -1
+   wall_density[0]      = 0
+   wall_density[1]      = 0
+   wall_ewald_zfac      = 3
+   pull                 = no
+   disre                = No
+   disre_weighting      = Conservative
+   disre_mixed          = FALSE
+   dr_fc                = 1000
+   dr_tau               = 0
+   nstdisreout          = 100
+   orires_fc            = 0
+   orires_tau           = 0
+   nstorireout          = 100
+   dihre-fc             = 1000
+   em_stepsize          = 0.1
+   em_tol               = 100
+   niter                = 20
+   fc_stepsize          = 0
+   nstcgsteep           = 1000
+   nbfgscorr            = 10
+   ConstAlg             = Lincs
+   shake_tol            = 0.0001
+   lincs_order          = 4
+   lincs_warnangle      = 30
+   lincs_iter           = 1
+   bd_fric              = 0.1
+   ld_seed              = 1993
+   cos_accel            = 0
+   deform (3x3):
+      deform[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   userint1             = 0
+   userint2             = 0
+   userint3             = 0
+   userint4             = 0
+   userreal1            = 0
+   userreal2            = 0
+   userreal3            = 0
+   userreal4            = 0
+grpopts:
+   nrdf:        8997
+   ref_t:         300
+   tau_t:         0.2
+anneal:          No
+ann_npoints:           0
+   acc:	           0           0           0
+   nfreeze:           N           N           N
+   energygrp_flags[  0]: 0
+   efield-x:
+      n = 0
+   efield-xt:
+      n = 0
+   efield-y:
+      n = 0
+   efield-yt:
+      n = 0
+   efield-z:
+      n = 0
+   efield-zt:
+      n = 0
+   bQMMM                = FALSE
+   QMconstraints        = 0
+   QMMMscheme           = 0
+   scalefactor          = 1
+qm_opts:
+   ngQM                 = 0
+Table routines are used for coulomb: FALSE
+Table routines are used for vdw:     FALSE
+Cut-off's:   NS: 3.85   Coulomb: 3.85   LJ: 3.85
+System total charge: 0.000
+Configuring nonbonded kernels...
+Testing x86_64 SSE support... present.
+
+
+Removing pbc first time
+
+Initializing LINear Constraint Solver
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess and H. Bekker and H. J. C. Berendsen and J. G. E. M. Fraaije
+LINCS: A Linear Constraint Solver for molecular simulations
+J. Comp. Chem. 18 (1997) pp. 1463-1472
+-------- -------- --- Thank You --- -------- --------
+
+The number of constraints is 3000
+Center of mass motion removal mode is Linear
+We have the following groups for center of mass motion removal:
+  0:  rest
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+G. Bussi, D. Donadio and M. Parrinello
+Canonical sampling through velocity rescaling
+J. Chem. Phys. 126 (2007) pp. 014101
+-------- -------- --- Thank You --- -------- --------
+
+There are: 4000 Atoms
+Max number of connections per atom is 9
+Total number of connections is 18000
+Max number of graph edges per atom is 3
+Total number of graph edges is 6000
+
+Constraining the starting coordinates (step 0)
+
+Constraining the coordinates at t0-dt (step 0)
+RMS relative constraint deviation after constraining: 4.89e-07
+Initial temperature: 294.892 K
+
+Started mdrun on node 0 Thu Jan 10 19:00:46 2013
+
+           Step           Time         Lambda
+              0        0.00000        0.00000
+
+Grid: 5 x 5 x 5 cells
+   Energies (kJ/mol)
+          Angle        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.
+    3.84426e+02   -4.89239e+05    0.00000e+00   -4.88855e+05    1.14507e+04
+   Total Energy    Temperature Pressure (bar)  Cons. rmsd ()
+   -4.77404e+05    3.06145e+02   -6.64397e+02    4.80505e-07
+
+
+Step 430  Warning: pressure scaling more than 1%, mu: 33.7536 33.7536 33.7536
+
+Step 431  Warning: pressure scaling more than 1%, mu: 6.30869e+07 6.30869e+07 6.30869e+07
+
+-------------------------------------------------------
+Program mdrun, VERSION v4.0.7-17-g49b10d5dc93f1ed2411d
+Source code file: constr.c, line: 136
+
+Fatal error:
+Too many LINCS warnings (3076)
+If you know what you are doing you can adjust the lincs warning threshold in your mdp file
+or set the environment variable GMX_MAXCONSTRWARN to -1,
+but normally it is better to fix the problem
+-------------------------------------------------------
+
+"If You Touch Me, You'll Get Shocked" (Beastie Boys)
+

@@ -1,0 +1,99 @@
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c">#atoms=np.array()</span>
+<span class="n">atoms</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c">#for line in fileinput.input(sys.argv[1]):</span>
+<span class="c">#   if (line[0]==&#39;C&#39;): #ignore everyline not with carbon as a first line</span>
+<span class="c">#        coords=line.split()  #[line[1],line[2],line[3]] #XYZ file</span>
+<span class="c">#        atoms.append(coords[1:4])</span>
+
+<span class="c">#print atoms</span>
+<span class="c">#print atoms[0][1],atoms[0][2],atoms[0][3]</span>
+
+<span class="c">#These are identified by hand</span>
+<span class="n">bisadducts</span><span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> 
+        <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">36</span><span class="p">],[</span><span class="mi">20</span><span class="p">,</span><span class="mi">44</span><span class="p">],[</span><span class="mi">28</span><span class="p">,</span><span class="mi">52</span><span class="p">],</span><span class="c"># &#39;&#39;&#39;C-isomers, from Schlegel&#39;&#39;&#39;</span>
+        <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">],</span> <span class="c">#E-isomers</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">18</span><span class="p">,</span><span class="mi">42</span><span class="p">],</span> <span class="c">#T1 and T2</span>
+        <span class="p">[</span><span class="mi">33</span><span class="p">,</span><span class="mi">57</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">47</span><span class="p">]</span> <span class="c">#T3,T4</span>
+<span class="p">]</span>
+
+<span class="k">print</span> <span class="s">&quot;BIS ANGLES&quot;</span>
+<span class="n">isocount</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">atoms</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span> <span class="c">#always 1st adduct on 0,1</span>
+<span class="k">for</span> <span class="n">bisb</span> <span class="ow">in</span> <span class="n">bisadducts</span><span class="p">:</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">atoms</span><span class="p">[</span><span class="n">bisb</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">atoms</span><span class="p">[</span><span class="n">bisb</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span><span class="o">/</span><span class="mf">2.</span> 
+        <span class="c">#OK, coorda and coordb are the coords (from centre) of average locations of sidechains</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="c">#print a,b,c</span>
+        <span class="k">print</span> <span class="mf">180.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">c</span><span class="p">),</span>
+        
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;bis_</span><span class="si">%d</span><span class="s">.xyz&#39;</span><span class="o">%</span><span class="n">isocount</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;I 0. 0. 0.&#39;</span> <span class="c">#iodine as centre of bucky</span>
+        <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;A </span><span class="si">%f</span><span class="s"> </span><span class="si">%f</span><span class="s"> </span><span class="si">%f</span><span class="s">&#39;</span><span class="o">%</span><span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> 
+        <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;B </span><span class="si">%f</span><span class="s"> </span><span class="si">%f</span><span class="s"> </span><span class="si">%f</span><span class="s">&#39;</span><span class="o">%</span><span class="nb">tuple</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> 
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">isocount</span><span class="o">=</span><span class="n">isocount</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c">## Uphill battle to Tris isomers...</span>
+<span class="c">#First, let&#39;s generalise</span>
+
+<span class="k">def</span> <span class="nf">midpoint</span><span class="p">(</span><span class="n">atom</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">((</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">+</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">theta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="c">#    return (180./np.pi*np.arccos(c))</span>
+    
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">180.</span> <span class="c">#np.pi #opposite direction vectors ?</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">180.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">c</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c">#round the values so that items are unique...</span>
+
+<span class="k">print</span>
+<span class="k">print</span> <span class="s">&quot;OK, want to identify all 6,6 bonds...&quot;</span>
+<span class="c">#our 6-6 bonds (long) are 1.37 A</span>
+<span class="c">#the 5,6 bonds (short) are 1.448 A</span>
+<span class="n">sixsix</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">):</span> <span class="c">#should do len.atoms or something here</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">atoms</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">-</span><span class="n">atoms</span><span class="p">[</span><span class="n">b</span><span class="p">])</span><span class="o">&lt;</span><span class="mf">1.4</span><span class="p">):</span>
+            <span class="n">sixsix</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">])</span>
+
+<span class="k">print</span> <span class="s">&quot;Found: &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sixsix</span><span class="p">),</span> <span class="n">sixsix</span>
+
+<span class="n">angles</span><span class="o">=</span><span class="nb">set</span><span class="p">()</span>
+
+<span class="n">isocount</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">iso</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">sixsix</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span> <span class="c">#ignore first item in sixsix - this is our 0,1 coordinate of first sidechain</span>
+    <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="n">midpoint</span><span class="p">(</span><span class="n">iso</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">midpoint</span><span class="p">(</span><span class="n">iso</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">midpoint</span><span class="p">(</span><span class="n">iso</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="c">#print a,b,c</span>
+    <span class="c">#print iso[0], iso[1], iso[2], </span>
+<span class="c">#    print theta(a,b), theta(a,c), theta(b,c)</span>
+    <span class="n">isomer</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">([</span><span class="n">theta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span> <span class="n">theta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">),</span> <span class="n">theta</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)])</span> <span class="p">)</span><span class="c">#Are you hashable?</span>
+    <span class="k">if</span> <span class="n">isomer</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">angles</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;NEW ONE!&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;tris_</span><span class="si">%d</span><span class="s">.xyz&#39;</span><span class="o">%</span><span class="n">isocount</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;I 0. 0. 0.&#39;</span> <span class="c">#iodine as centre of bucky</span>
+        <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;A </span><span class="si">%f</span><span class="s"> </span><span class="si">%f</span><span class="s"> </span><span class="si">%f</span><span class="s">&#39;</span><span class="o">%</span><span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> 
+        <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;B </span><span class="si">%f</span><span class="s"> </span><span class="si">%f</span><span class="s"> </span><span class="si">%f</span><span class="s">&#39;</span><span class="o">%</span><span class="nb">tuple</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> 
+        <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;C </span><span class="si">%f</span><span class="s"> </span><span class="si">%f</span><span class="s"> </span><span class="si">%f</span><span class="s">&#39;</span><span class="o">%</span><span class="nb">tuple</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> 
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">isocount</span><span class="o">=</span><span class="n">isocount</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">angles</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">isomer</span> <span class="p">)</span>
+
+<span class="k">print</span> <span class="nb">set</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">isomer</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">angles</span><span class="p">):</span>
+    <span class="k">print</span>
+    <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">isomer</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">angle</span><span class="p">,</span>
+
+<span class="c">#print theta((1,0,0),(0,1,0))</span>
+<span class="c">#print theta((1, 0, 0), (1, 0, 0))</span>
+<span class="c">#print theta((1, 0, 0), (-1, 0, 0))</span>
+<span class="c">#print set(angles)</span>
+</pre></div>

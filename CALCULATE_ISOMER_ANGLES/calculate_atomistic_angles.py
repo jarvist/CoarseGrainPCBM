@@ -1,9 +1,10 @@
-import sys, itertools
+import sys, itertools, collections
 import numpy as np
 
 #atoms=np.array()
-atoms=np.loadtxt(sys.argv[1])
-#for line in fileinput.input(sys.argv[1]):
+atoms=np.loadtxt(sys.argv[1]) #a .xyz stripped down to comments + X,Y,Z tuples
+
+#for line in fileinput.input(sys.argv[1]): #Not used anymore as the was easier to preprocess the C60 file
 #   if (line[0]=='C'): #ignore everyline not with carbon as a first line
 #        coords=line.split()  #[line[1],line[2],line[3]] #XYZ file
 #        atoms.append(coords[1:4])
@@ -12,8 +13,8 @@ atoms=np.loadtxt(sys.argv[1])
 #print atoms[0][1],atoms[0][2],atoms[0][3]
 
 #These are identified by hand
-bisadducts= [ [0,1] , 
-        [12,36],[20,44],[28,52],# '''C-isomers, from Schlegel'''
+bisadducts= [ #[0,1] , #Uncomment this to trick the bis code into generating a mono, for display purposes. Nasty hack! (*_*) 
+        [12,36],[20,44],[28,52],# '''C-isomers, from Schlegel diagram'''
         [6,7],[10,11], #E-isomers
         [2,3],[18,42], #T1 and T2
         [33,57],[23,47] #T3,T4
@@ -56,7 +57,7 @@ print "OK, want to identify all 6,6 bonds..."
 #our 6-6 bonds (long) are 1.37 A
 #the 5,6 bonds (short) are 1.448 A
 sixsix=[]
-for a in range(60): #should do len.atoms or something here
+for a in range(60): #should do len.atoms or something here, to generalise (hardcoded to C60 presently)
     for b in range(a):
         if (np.linalg.norm(atoms[a]-atoms[b])<1.4):
             sixsix.append([a,b])
@@ -64,9 +65,14 @@ for a in range(60): #should do len.atoms or something here
 print "Found: ",len(sixsix), sixsix
 
 angles=set()
+counter=collections.Counter()
 
 isocount=1
 
+# Nb: This code could be trivially adapted to bis (sidechains =2)
+# It should also work for higher adducts (Tetrakis & above)
+#  and should be generalisable to N_sidechains as a function
+    #  ( it would be interesting to see how number of sidechains & degeneracies changes as a fn of sidechains! 1-30)
 for iso in itertools.permutations(sixsix,3): #ignore first item in sixsix - this is our 0,1 coordinate of first sidechain
     a,b,c=midpoint(iso[0]), midpoint(iso[1]), midpoint(iso[2])
     #print a,b,c
@@ -82,17 +88,20 @@ for iso in itertools.permutations(sixsix,3): #ignore first item in sixsix - this
         print >>f, 'C %f %f %f'%tuple(c) 
         f.close()
         isocount=isocount+1
-    angles.add( isomer )
+    
+    angles.add( isomer ) # angles is a set .'. duplicates automatically ignored 
+    counter[isomer]+=1 # count degeneracy
 
-print set(angles)
-print len(angles)
+print "Unsorted set of unique Tris...", set(angles)
+print "Count of unique isomers: ", len(angles)
 
+print "Spec of isomers, and degeneracy..."
+for a in counter:
+    print a, counter[a]/120 #a terrible hack, but I know the GCD is 120 
+
+print "Raw angle values for empirical forcefield..."
 for isomer in sorted(angles):
     print
     for angle in isomer:
         print angle,
 
-#print theta((1,0,0),(0,1,0))
-#print theta((1, 0, 0), (1, 0, 0))
-#print theta((1, 0, 0), (-1, 0, 0))
-#print set(angles)

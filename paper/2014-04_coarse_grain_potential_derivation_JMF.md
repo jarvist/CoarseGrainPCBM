@@ -27,10 +27,10 @@ between atoms.
 The midpoint of these bonds, and thus the attachment point of the sidechains,
 was found by averaging the cartessian positions of the two bonded atoms.
 
-We can then enumerate over all possible permutations of these bonds (60 options
-permutated into 3 selections, XX,XXXX options, which can be immediately
-simplified by inspection to taking 2 selections of 59 if we choose the first
-location for the first sidechain). 
+We can then enumerate over all possible permutations of these bonds (30
+options, 3 selections leading to 24360 permutations, which can be immediately
+simplified by inspection to 812 permutations by taking 2 selections of 29
+options if we choose the first location for the first sidechain). 
 Three inter-sidechain angles are then generated (arcos of the dot production)
 from these sets of 3 coordinates (a,b;a,c;b,c). 
 

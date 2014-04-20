@@ -1,0 +1,27 @@
+GNU Octave, version 3.6.2
+Copyright (C) 2012 John W. Eaton and others.
+This is free software; see the source code for copying conditions.
+There is ABSOLUTELY NO WARRANTY; not even for MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  For details, type `warranty'.
+
+Octave was configured for "x86_64-unknown-linux-gnu".
+
+Additional information about Octave is available at http://www.octave.org.
+
+Please contribute if you find this software useful.
+For more information, visit http://www.octave.org/help-wanted.html
+
+Read http://www.octave.org/bugs.html to learn how to submit bug reports.
+
+For information about changes from previous versions, type `news'.
+
+Assumes the presence of the following files: MOs_1.txt, MOs_2.txt, MOs_pair.txt, S_1.txt, S_2.txt, S_pair.txt, Evls_pair.txt
+!!! Octave counts from 1 !!!
+Number of MOs (of monomer)HOMO (of monomer)E1_E2 = -0.018486
+half_HOMO_diff =  0.0092437
+Non_degenerate_HOMO_coupling =  8.0986e-09
+Non_degenerate_LUMO_coupling =  3.9580e-09
+Doubly_degenerate_HOMO_coupling =  3.4953e-09
+Doubly_degenerate_LUMO_coupling =  7.3245e-09
+Triply_degenerate_HOMO_coupling =  2.4281e-09
+Triply_degenerate_LUMO_coupling =  5.2251e-09

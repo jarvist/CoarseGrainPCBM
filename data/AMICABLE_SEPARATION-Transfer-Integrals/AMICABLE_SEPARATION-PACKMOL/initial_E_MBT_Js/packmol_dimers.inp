@@ -1,0 +1,26 @@
+# Using packmol to generate transfer-integral calculation topologies
+
+#Minimal atom-atom separation required
+tolerance 2.0
+
+filetype pdb
+output OUTPUT
+
+structure input.pdb
+ number 1
+ fixed 0. 0. 0. 0. 0. 0.
+# centerofmass #No thankyou! bumps the position c.f. Gaussian, which is
+# I assume centre of nuclear charge.
+end structure
+
+structure input.pdb
+ number 1
+ fixed 0. 0. X 0. 0. 0.
+end structure
+
+#random number seed
+#seed SEED
+
+#randominitialpoint
+#with check, just outputs initial configuration with no minimisation / tolerance checking
+#check

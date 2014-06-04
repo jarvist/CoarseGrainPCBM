@@ -99,6 +99,11 @@ print "Spec of isomers, and degeneracy..."
 for a in counter:
     print a, counter[a]/120 #a terrible hack, but I know the GCD is 120 
 
+print "Spec of isomers, and degeneracy - formatted for a Latex table..."
+for a in counter:
+    print "%d & %d & %d & %d \\\\" % (a[0], a[1], a[2], counter[a]/120) #a terrible hack, but I know the GCD is 120 
+
+
 print "Raw angle values for empirical forcefield..."
 for isomer in sorted(angles):
     print

@@ -1,5 +1,5 @@
 %JACS TEMPLATE STARTS HERE
-\documentclass[journal=jacsat,manuscript=communication]{achemso}
+\documentclass[journal=nanofd,manuscript=suppinfo]{achemso}
 \usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
 \usepackage{lineno,xcolor}
 \newcommand*{\mycommand}[1]{\texttt{\emph{#1}}}
@@ -24,6 +24,7 @@
 \title{PCBM-CG: A place for tired \LaTeX to rest}
 
 \author{Jarvist M. Frost}
+\email{j.m.frost@bath.ac.uk}
 %\author{Federico Brivio}
 %\author{Christopher H. Hendon}
 \affiliation{Centre for Sustainable Chemical Technologies and Department of Chemistry, University of Bath, Claverton Down, Bath BA2 7AY, UK}
@@ -112,7 +113,7 @@ tris-ET4T3 & 76.80 & 73.70 & 150.50 \\
 tris-T3T3T3 & 82.08 & 75.01 & 157.09 \\
 tris-T4T3T3 & 77.78 & 78.22 & 155.99 \\
 tris-T4T4T2 & 74.82 & 74.58 & 149.40 \\
-tris-T4T4T4 & 0.00 & 0.00 & 0.00 \\
+tris-T4T4T4 & 82.84 & 75.88 & 158.73 \\
 \midrule
 c70-mono & 92.31 & 87.75 & 180.07 \\
 c70-bis-4158 & 98.25 & 96.06 & 194.31 \\
@@ -146,7 +147,130 @@ $\sigma$ & 0.0 & 0.021 & 0.056 & 0.072 & 0.121 & 0.250 \\
 \bottomrule
 \end{tabular}
 \caption{\label{tab:mobs}
-Simulated mobility by Time of Flight (using the \textsc{ToFET} code), with varying energetic disorder. Units are \si{cm^2/Vs}}
+Simulated mobility by Time of Flight (using the \textsc{ToFET} code), with varying energetic disorder. Units are mobility --- \si{cm^2/Vs}, energetic disorder --- \si{\meV}}
+\end{table}
+
+\textbf{Coarse Graining}
+
+C60 has 90 bonds between the 60 atoms. 30 of these are 6,6 coordinating (1.37
+A long - along two hexagonal facets) and have more double-bond like character.
+The remaining 60 bonds are 5,6 coordinating (1.448 A long). PCBM is formed by
+4+2 cycloaddition.
+These sidechains are believed (ref - that synth paper) to
+wholly coordinate with the 6,6 bonds.
+
+The 8 unique bis isomers, and 45 tris isomers, have been identified and their
+point group derived in previous work (ref, Hirsch?).
+However we did not find a computationally readable list of structures which
+would be directly useful in constructing our coarse grained model.
+
+\begin{figure}[ht!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{bis_8_isomers_ray.png}
+            \caption{\label{fig-8bisCG}The 8 unique bis isomers, at the coarse grain level.}
+    \end{center}
+\end{figure}
+
+The bis isomers can be enumerated (identified) by hand and are defined in our
+coarse grain model simply as the internal angle between the two sidechains. Of
+the 9 unique isomers, two are equitorial, which for our coarse grain model
+results in equivalent 90-degree angles.
+
+
+
+Identifying unique tris isomers is much more difficult, so we developed
+a computational method to directly enumerate the isomers and calculate the
+coarse-grain specification of angles between the three sidechains.
+
+First we read in the coorinates of a C60 molecule with (0,0,0) defined as the
+centre of the fullerene. We then identify the 6,6 bonds by spacing (<1.4A)
+between atoms.
+The midpoint of these bonds, and thus the attachment point of the sidechains,
+was found by averaging the cartessian positions of the two bonded atoms.
+
+We can then enumerate over all possible permutations of these bonds (30
+options, 3 selections leading to 24360 permutations, which can be immediately
+simplified by inspection to 812 permutations by taking 2 selections of 29
+options if we choose the first location for the first sidechain).
+Three inter-sidechain angles are then generated (arcos of the dot production)
+from these sets of 3 coordinates (a,b;a,c;b,c).
+
+As the order in which we specify the inter-sidechain angles does not matter, we
+are free to rearrange.
+By reordering these angles in ascending order, we can identify degenerate
+configurations by direct comparison.
+
+The newly calculated set of three angles is compared against a list of uniquely
+defined isomers, and either appended to this list if found to be unique, or
+discarded and the degeneracy counter of that (already identified) isomer incremented.
+
+\begin{figure}[ht!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{tris_45_isomers.png}
+            \caption{\label{fig-trisCG}The 45 unique tris isomers, at the coarse grain level, as generated automatically by the method described here.}
+    \end{center}
+\end{figure}
+
+
+
+With a simple bit of trigonometry and enumeration we directly discover the 45
+unique tris isomers and their symmetry derived degeneracy, and can directly
+generate the angle specification suitable for an empirical force field
+specificaiton, and a relaxed set of coarse grain coordinates for visualisation
+and the generation of a dense initial structure for molecular dynamics.
+
+\begin{table}[ht!]
+    \begin{tabular}{lllr}
+\toprule
+$\theta_{A,B}$ & $\theta_{A,C}$ & $\theta_{B,C}$ & degeneracy \\
+\midrule
+36 & 36 & 36 & 1 \\
+36 & 36 & 60 & 3 \\
+36 & 36 & 72 & 3 \\
+36 & 60 & 60 & 3 \\
+36 & 60 & 72 & 6 \\
+36 & 60 & 90 & 6 \\
+36 & 72 & 90 & 6 \\
+36 & 72 & 108 & 6 \\
+36 & 90 & 108 & 6 \\
+36 & 90 & 120 & 6 \\
+36 & 108 & 120 & 6 \\
+36 & 108 & 144 & 6 \\
+36 & 120 & 120 & 3 \\
+36 & 120 & 144 & 6 \\
+36 & 144 & 144 & 3 \\
+36 & 144 & 180 & 6 \\
+60 & 60 & 108 & 3 \\
+60 & 60 & 120 & 3 \\
+60 & 72 & 72 & 3 \\
+60 & 72 & 90 & 6 \\
+60 & 72 & 120 & 6 \\
+60 & 90 & 108 & 6 \\
+60 & 90 & 144 & 6 \\
+60 & 108 & 108 & 3 \\
+60 & 108 & 144 & 6 \\
+60 & 120 & 144 & 6 \\
+60 & 120 & 180 & 6 \\
+60 & 144 & 144 & 3 \\
+72 & 72 & 108 & 3 \\
+72 & 72 & 144 & 3 \\
+72 & 90 & 120 & 6 \\
+72 & 90 & 144 & 6 \\
+72 & 108 & 120 & 6 \\
+72 & 108 & 180 & 6 \\
+72 & 120 & 144 & 6 \\
+72 & 144 & 144 & 3 \\
+90 & 90 & 90 & 2 \\
+90 & 90 & 180 & 3 \\
+90 & 108 & 120 & 6 \\
+90 & 108 & 144 & 6 \\
+90 & 120 & 144 & 6 \\
+108 & 108 & 108 & 1 \\
+108 & 108 & 144 & 3 \\
+108 & 120 & 120 & 3 \\
+120 & 120 & 120 & 1 
+\end{tabular}
+\caption{\label{table-tris}Inter-sidechain angles for all 45 enumerated tris isomers, with a statement of the degeneracy (number of ways possible of constructing this unique isomer).}
 \end{table}
 
 \begin{acknowledgement}
@@ -160,7 +284,7 @@ We are grateful for the lyrical encouragment of Salt N Pepa.
 \end{acknowledgement}
 
 \begin{suppinfo}
-    The data set and analysis codes, \textsc{TrendyName}, are available as a source code repository on GitHub\cite{GitHub}.
+    The data set and analysis codes, \textsc{CoarseGrainPCBM}, are available as a source code and data repository on GitHub\cite{GitHub}.
 \end{suppinfo}
 
 \bibliography{library}

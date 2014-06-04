@@ -1,0 +1,4 @@
+On Thu Jan  6 15:32:40 GMT 2011 in /home/jarvist/gmx_work/PCBM-CG/monoPCBM_redo/atomistic_relaxed_mono
+File: atomistic_mono_cg_rdfs.* became /home/jarvist/REPOSITORY/LABBOOK/PCBM-CG/figs/atomistic_mono_cg_rdfs.*
+The caption was:
+From a single frame of a 99-PCBM atomistic simulation, then steepest descents relaxation. Indexes composed with awk script, centre of mass molecular RDF for the components.

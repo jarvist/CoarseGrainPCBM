@@ -1,0 +1,51 @@
+#seq 1 45 | awk '{printf ("load tris_%d.xyz\n",$1)}' > tris_display_pymol.dat
+
+load tris_1.xyz
+load tris_2.xyz
+load tris_3.xyz
+load tris_4.xyz
+load tris_5.xyz
+load tris_6.xyz
+load tris_7.xyz
+load tris_8.xyz
+load tris_9.xyz
+load tris_10.xyz
+load tris_11.xyz
+load tris_12.xyz
+load tris_13.xyz
+load tris_14.xyz
+load tris_15.xyz
+load tris_16.xyz
+load tris_17.xyz
+load tris_18.xyz
+load tris_19.xyz
+load tris_20.xyz
+load tris_21.xyz
+load tris_22.xyz
+load tris_23.xyz
+load tris_24.xyz
+load tris_25.xyz
+load tris_26.xyz
+load tris_27.xyz
+load tris_28.xyz
+load tris_29.xyz
+load tris_30.xyz
+load tris_31.xyz
+load tris_32.xyz
+load tris_33.xyz
+load tris_34.xyz
+load tris_35.xyz
+load tris_36.xyz
+load tris_37.xyz
+load tris_38.xyz
+load tris_39.xyz
+load tris_40.xyz
+load tris_41.xyz
+load tris_42.xyz
+load tris_43.xyz
+load tris_44.xyz
+load tris_45.xyz
+
+
+@display_pymol.dat
+

@@ -1,0 +1,43 @@
+set grid_mode, 1
+
+# everything spaced at =3.45 Angstrom, strange
+alter (name I), vdw=3.5
+alter (name A), vdw=2.7
+alter (name B), vdw=2.7
+alter (name C), vdw=2.7
+
+# From color brewer:-
+# Qualitative / 4-class Pastel1
+set_color P1, ((251./255),(180./255),(174./255))
+set_color P2, ((179./255),(205./255),(227./255))
+set_color P3, ((204./255),(235./255),(197./255))
+set_color P4, ((222./255),(203./255),(228./255))
+
+#4-class RdBu
+set_color P1, 0xca0020
+set_color P2, 0xf4a582
+set_color P3, 0x92c5de
+set_color P4, 0x0571b0
+
+#^-- no, I don't know why this works with the second values :^)
+
+color P1, (name I)
+color P2, (name A)
+color P3, (name B)
+color P4, (name C)
+
+set bg_rgb, white
+
+show spheres
+
+set orthoscopic, off
+set antialias, 2
+set ray_trace_mode, 0 
+
+set ambient, 0.1
+set reflect, 0.5
+set two_sided_lighting, on
+
+set spec_reflect, 0.0
+
+

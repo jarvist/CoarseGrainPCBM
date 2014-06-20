@@ -1,0 +1,13 @@
+load bis_2.xyz
+load bis_3.xyz
+load bis_4.xyz
+
+load bis_6.xyz
+
+load bis_10.xyz
+load bis_9.xyz
+load bis_8.xyz
+load bis_7.xyz
+
+@display_pymol.dat
+
